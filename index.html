@@ -598,32 +598,58 @@
     </header>
 
     <!-- Hero Section with Video Background -->
-    <section class="hero">
-        <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <!-- Replace with your actual video file -->
-                <source src="vv4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-overlay"></div>
-        </div>
-        
-        <div class="container hero-content">
-            <img style="height: 1.7cm; border-radius: 60%; opacity: 90%;animation: fadeInUp 1.1s cubic-bezier(0.33,1,0.68,1) 0.2s forwards; " src="logo.png" alt="" srcset="">
-            <h1 style="color: #f8f6f6;">Bespoke  Footwears</h1>
-            <p>  Shoes That Reflect The Luxury Of Craftsmanship  </p>
-            <a href="#contact" class="btn">Commission Your Pair</a>
-        </div>
-    </section>
+    <!-- Hero Section with Video Background -->
+<section class="hero">
+    <div class="video-background">
+        <video class="background-video" autoplay muted loop playsinline poster="fallback.jpg">
+            <source src="vv4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+        <img style="height: 1.7cm; border-radius: 60%; opacity: 90%;animation: fadeInUp 1.1s cubic-bezier(0.33,1,0.68,1) 0.2s forwards;" src="logo.png" alt="Inseekan Logo">
+        <h1 style="color: #f8f6f6;">Bespoke Footwears</h1>
+        <p>Shoes That Reflect The Luxury Of Craftsmanship</p>
+        <a href="#contact" class="btn">Commission Your Pair</a>
+    </div>
+</section>
+<style> 
+    .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Optional: Hide native controls on mobile */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+</style>
     <!-- Story Section -->
     <section class="story">
         <div class="container">
             <h2 class="section-title">Our Heritage</h2>
             <div class="story-content">
                 <div class="story-text">
-                    <p>Inseekan Footwears  was born from a passion for preserving traditional Nigerian craftsmanship while meeting the demands of modern style. Our journey began in 2015 when our founder, recognizing a gap in the market for high-quality, locally-made leather footwear, decided to create a brand that would showcase the best of Nigerian artistry.</p>
-                    <p>Starting as a small workshop with just two artisans, we've grown into a respected name in bespoke footwear, serving clients across Nigeria and internationally. Our name "Inseekan" draws from the Yoruba language, meaning "to find" or "to discover" - representing our mission to help clients discover the perfect footwear that expresses their individuality.</p>
-                    <p>Every pair we create tells a story - of skilled hands that cut and stitch, of premium materials carefully selected, and of a client's unique personality expressed through design. We honor the time-honored techniques passed down through generations while innovating to meet contemporary tastes.</p>
+                    <p>Inseekan Footwears  was born from a passion for preserving
+                        traditional Nigerian craftsmanship while meeting the demands of modern style.
+                         Our journey began recognizing a gap in the market for high-quality, locally-made
+                           footwear,  to create a brand that would showcase the best of Nigerian artistry.</p>
+                  
+                    <p>Every pair we create tells a story - of skilled hands that cut and stitch, 
+                        of premium materials carefully selected, and of a client's unique personality
+                         expressed through design. We honor the time-honored techniques passed down 
+                         through generations while innovating to meet contemporary tastes.</p>
                 </div>
                 <div class="story-image">
                     <img src="m (3).jpg" alt="Inseekan Leather Workshop">
@@ -885,45 +911,7 @@ style.textContent = `
 document.head.appendChild(style);
 
     </script>
-     <section class="craftsmanship">
-        <div class="container">
-            <h2 style="color: #f7f5f2;" class="section-title">Our Craftsmanship</h2>
-            <div class="craft-content">
-                <div class="craft-text">
-                    <p>At Inseekan Leather, we follow a meticulous process that honors traditional techniques while ensuring modern precision:</p>
-                    <ul style="list-style: none; margin: 20px 0;">
-                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
-                            <strong>Material Selection:</strong> We source premium leather from both local Nigerian tanneries and select international suppliers
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
-                            <strong>Pattern Making:</strong> Each design begins with precise patterns tailored to the client's measurements
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
-                            <strong>Hand Cutting:</strong> Artisans carefully cut each component using specialized tools and techniques
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
-                            <strong>Traditional Stitching:</strong> We use both machine and hand-stitching methods for durability and aesthetic appeal
-                        </li>
-                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
-                            <strong>Finishing:</strong> Each pair undergoes meticulous finishing, including polishing, edge treatment, and quality inspection
-                        </li>
-                    </ul>
-                    <p>This careful attention to detail ensures that every pair of Inseekan footwear not only looks exceptional but provides comfort and durability that lasts for years.</p>
-                </div>
-                <div class="craft-video">
-                    <video controls autoplay muted loop>
-                        <source src="herov (online-video-cutter.com).mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <section class="about" id="about">
         <div class="container">
           
