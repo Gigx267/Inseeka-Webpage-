@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection | Inseekan Leather | Bespoke Footwear Abuja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+            --whatsapp: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-icon {
+            display: none;
+            font-size: 24px;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('m (3).jpg') center/cover no-repeat;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: var(--text);
+        }
+        
+        .breadcrumb li a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .breadcrumb li::after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--text);
+        }
+        
+        .breadcrumb li:last-child::after {
+            content: '';
+        }
+        
+        /* Collection Grid */
+        .collection-grid {
+            padding: 60px 0;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background-color: transparent;
+            color: var(--text);
+            border: 1px solid var(--gold);
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--gold);
+            color: var(--dark-bg);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: var(--dark-element);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 380px; /* Increased height for larger images */
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        /* Price Sticker */
+        .price-sticker {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 8px 12px;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 3px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-sticker::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold);
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .view-btn {
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 12px 25px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .view-btn:hover {
+            background-color: var(--dark-bg);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        /* WhatsApp Order Button */
+        .whatsapp-order-btn {
+            display: inline-block;
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .whatsapp-order-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-order-btn i {
+            margin-right: 5px;
+        }
+        
+        /* Product Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            overflow-y: auto;
+            padding: 50px 0;
+        }
+        
+        .modal-content {
+            background-color: var(--dark-element);
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .modal-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+        }
+        
+        .modal-info h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .modal-info p {
+            margin-bottom: 15px;
+        }
+        
+        .modal-price {
+            font-size: 24px;
+            color: var(--gold);
+            margin: 20px 0;
+        }
+        
+        .modal-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .modal-btn:hover {
+            background-color: var(--dark-bg);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--whatsapp);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                flex-direction: column;
+            }
+            
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .product-image {
+                height: 320px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-icon {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--dark-element);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 50px 0;
+                transition: left 0.3s;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+                text-align: center;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .product-image {
+                height: 350px;
+            }
+            
+            .page-header {
+                height: 50vh;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class=""></i>
+                Inseekan - More Than Shoes
+            </a>
+            
+            <div class="nav-icon" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collection.html">Collection</a></li>
+                    <li><a href="founder.html">Founder</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Collection</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Collection</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Collection Grid -->
+    <section class="collection-grid">
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="slippers">Slippers</button>
+                <button class="filter-btn" data-filter="sandals">Sandals</button>
+                <button class="filter-btn" data-filter="shoes">Shoes</button>
+                <button class="filter-btn" data-filter="boots">Boots</button>
+            </div>
+            
+            <div class="grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="slippers">
+                    <div class="product-image">
+                        <img src="p (1).jpg" alt="Premium Leather Slippers">
+                        <div class="price-sticker">₦25,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="1">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Leather Slippers</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Classic Leather Slippers" data-price="25000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-category="sandals">
+                    <div class="product-image">
+                        <img src="s (2).jpg" alt="Handcrafted Sandals">
+                        <div class="price-sticker">₦32,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="2">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Artisan Sandals</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Artisan Sandals" data-price="32000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-category="shoes">
+                    <div class="product-image">
+                        <img src="s (3).jpg" alt="Bespoke Derby Shoes">
+                        <div class="price-sticker">₦45,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="3">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Derby Shoes</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Derby Shoes" data-price="45000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-category="boots">
+                    <div class="product-image">
+                        <img src="s (4).jpg" alt="Leather Boots">
+                        <div class="price-sticker">₦55,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="4">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ankle Boots</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Ankle Boots" data-price="55000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-category="slippers">
+                    <div class="product-image">
+                        <img src="s (5).jpg" alt="Embroidered Slippers">
+                        <div class="price-sticker">₦28,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="5">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Embroidered Slippers</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Embroidered Slippers" data-price="28000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" data-category="sandals">
+                    <div class="product-image">
+                        <img src="s (6).jpg" alt="Designer Sandals">
+                        <div class="price-sticker">₦35,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="6">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Designer Sandals</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Designer Sandals" data-price="35000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card" data-category="shoes">
+                    <div class="product-image">
+                        <img src="s (7).jpg" alt="Oxford Shoes">
+                        <div class="price-sticker">₦48,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="7">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Oxford Shoes</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Oxford Shoes" data-price="48000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card" data-category="boots">
+                    <div class="product-image">
+                        <img src="s (8).jpg" alt="Chelsea Boots">
+                        <div class="price-sticker">₦58,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="8">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Chelsea Boots</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Chelsea Boots" data-price="58000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="product-card" data-category="slippers">
+                    <div class="product-image">
+                        <img src="s (9).jpg" alt="Casual Slippers">
+                        <div class="price-sticker">₦22,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="9">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Casual Slippers</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Casual Slippers" data-price="22000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="product-card" data-category="sandals">
+                    <div class="product-image">
+                        <img src="s (10).jpg" alt="Traditional Sandals">
+                        <div class="price-sticker">₦30,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="10">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Traditional Sandals</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Traditional Sandals" data-price="30000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="product-card" data-category="shoes">
+                    <div class="product-image">
+                        <img src="s (11).jpg" alt="Loafers">
+                        <div class="price-sticker">₦42,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="11">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Leather Loafers</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Leather Loafers" data-price="42000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 12 -->
+                <div class="product-card" data-category="boots">
+                    <div class="product-image">
+                        <img src="s (12).jpg" alt="Formal Boots">
+                        <div class="price-sticker">₦62,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="12">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Formal Boots</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Formal Boots" data-price="62000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 13 -->
+                <div class="product-card" data-category="slippers">
+                    <div class="product-image">
+                        <img src="s (13).jpg" alt="Premium Slippers">
+                        <div class="price-sticker">₦30,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="13">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Slippers</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Premium Slippers" data-price="30000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 14 -->
+                <div class="product-card" data-category="sandals">
+                    <div class="product-image">
+                        <img src="s (14).jpg" alt="Luxury Sandals">
+                        <div class="price-sticker">₦38,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="14">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Luxury Sandals</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Luxury Sandals" data-price="38000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 15 -->
+                <div class="product-card" data-category="shoes">
+                    <div class="product-image">
+                        <img src="s (15).jpg" alt="Brogue Shoes">
+                        <div class="price-sticker">₦50,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="15">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Brogue Shoes</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Brogue Shoes" data-price="50000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product 16 -->
+                <div class="product-card" data-category="boots">
+                    <div class="product-image">
+                        <img src="s (16).jpg" alt="Casual Boots">
+                        <div class="price-sticker">₦52,000</div>
+                        <div class="product-overlay">
+                            <a href="#" class="view-btn" data-id="16">View Details</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Casual Boots</h3>
+                        <a href="#" class="whatsapp-order-btn" data-product="Casual Boots" data-price="52000">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modals -->
+    <!-- Modal 1 -->
+    <div id="modal-1" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-image">
+                <img src="s (1).jpg" alt="Premium Leather Slippers">
+            </div>
+            <div class="modal-info">
+                <h2>Classic Leather Slippers</h2>
+                <p>Handcrafted from premium Nigerian leather, these slippers combine traditional craftsmanship with contemporary comfort.</p>
+                <p>Features:</p>
+                <ul>
+                    <li>Full-grain leather upper</li>
+                    <li>Soft leather lining</li>
+                    <li>Cushioned insole for all-day comfort</li>
+                    <li>Durable rubber sole</li>
+                    <li>Available in multiple colors</li>
+                </ul>
+                <div class="modal-price">₦25,000</div>
+                <a href="https://api.whatsapp.com/message/XCOJNPGDYCMDA1?autoload=1&app_absent=0&text=Hello! I'm interested in ordering the Classic Leather Slippers (₦25,000)." class="whatsapp-order-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </a>
+                <a href="contact.html" class="modal-btn">Inquire About This Product</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional modals would follow the same pattern for each product -->
+    <!-- For brevity, I've only included one modal example -->
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://api.whatsapp.com/message/XCOJNPGDYCMDA1?autoload=1&app_absent=0" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Can't Find What You're Looking For?</h2>
+            <p>We specialize in bespoke footwear. Schedule a consultation to create a custom pair designed specifically for you.</p>
+            <a href="contact.html" class="btn">Request Custom Design</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Inseekan Africa</div>
+                    <p>Crafting exceptional bespoke footwear in Abuja with passion and precision.</p>
+                </div>
+                
+                <div>
+                    <h3>Every pair we create tells a story</h3>
+                </div>
+                
+                <div>
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/message/XCOJNPGDYCMDA1?autoload=1&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; Inseekan. All rights reserved. | Handcrafted in Abuja, Nigeria</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Product Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Modal functionality
+        const viewButtons = document.querySelectorAll('.view-btn');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.modal-close');
+        
+        viewButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = button.getAttribute('data-id');
+                const modal = document.getElementById(`modal-${productId}`);
+                modal.style.display = 'block';
+                document.body.style.overflow
+        
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

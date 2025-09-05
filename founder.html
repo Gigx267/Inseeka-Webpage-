@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Founder | Inseekan Leather | Bespoke Footwear Abuja</title>
+     <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-icon {
+            display: none;
+            font-size: 24px;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            height: 80vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./m\ \(2\).heic') center/cover no-repeat;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: var(--text);
+        }
+        
+        .breadcrumb li a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .breadcrumb li::after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--text);
+        }
+        
+        .breadcrumb li:last-child::after {
+            content: '';
+        }
+        
+        /* Founder Intro */
+        .founder-intro {
+            padding: 60px 0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .founder-intro p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Founder Story */
+        .founder-story {
+            padding: 80px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .founder-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .founder-text {
+            flex: 1;
+        }
+        
+        .founder-image {
+            flex: 1;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            background-color: var(--dark-bg);
+            position: relative;
+        }
+        
+        .founder-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        .founder-quote {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(10, 10, 10, 0.8);
+            padding: 15px;
+            border-left: 3px solid var(--gold);
+            max-width: 300px;
+        }
+        
+        /* Philosophy Section */
+        .philosophy {
+            padding: 80px 0;
+        }
+        
+        .philosophy-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .philosophy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+        
+        .philosophy-icon {
+            font-size: 36px;
+            color: var(--gold);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .philosophy-text h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Journey Section */
+        .journey {
+            padding: 80px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--gold);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--dark-bg);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            top: 20px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* Craftsmanship Section */
+        .craftsmanship {
+            padding: 80px 0;
+        }
+        
+        .craft-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .craft-text {
+            flex: 1;
+        }
+        
+        .craft-video {
+            flex: 1;
+        }
+        
+        .craft-video video {
+            width: 100%;
+            display: block;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            background-color: var(--dark-bg);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .founder-content, .craft-content {
+                flex-direction: column;
+            }
+            
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-icon {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--dark-element);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 50px 0;
+                transition: left 0.3s;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+                text-align: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .philosophy-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class=""></i>
+                Inseekan - More Than Shoes
+            </a>
+            
+            <div class="nav-icon" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collection.html">Collection</a></li>
+                    <li><a href="founder.html">Founder</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Meet Our Founder</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Our Founder</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Founder Intro -->
+    <section class="founder-intro">
+        <div class="container">
+            <h2 class="section-title">Nsikan Of Inseekan</h2>
+            <p>The visionary craftsman behind Inseekan Leather, Nsikan discovered his passion for shoemaking at a young age, nurtured by a deep fascination with leather, patterns, and the meticulous process of crafting footwear.</p>
+            <p>His journey into the world of shoemaking was not a mere career choice; it was a calling that would eventually lead to the creation of one of Abuja's most respected bespoke footwear brands.</p>
+        </div>
+    </section>
+
+    <!-- Founder Story -->
+    <section class="founder-story">
+        <div class="container">
+            <div class="founder-content">
+                <div class="founder-text">
+                    <h2>The Man Behind the Craft</h2>
+                    <p>Nsikan's journey with leather began unexpectedly during his youth when he would watch local craftsmen work with leather at markets. Fascinated by the transformation of raw materials into beautiful, functional items, he began experimenting on his own, learning through trial and error.</p>
+                    <p>After completing his education, Nsikan spent years apprenticing with master shoemakers across Nigeria, learning traditional techniques while developing his unique style. He understood that no two feet are the same, which is why he takes great pride in offering custom shoemaking services.</p>
+                    <p>In 2020, he established Inseekan  with a vision to blend traditional Nigerian craftsmanship with contemporary design sensibilities. The name "Inseekan" reflects his philosophy - it means "to find" or "to discover" in Yoruba, representing his mission to help clients discover the perfect footwear that expresses their individuality.</p>
+                    <p>Today, Nsikan continues to personally oversee every aspect of the shoemaking process, from initial client consultations to the final polish. His hands have crafted thousands of pairs of shoes, each bearing his signature attention to detail and commitment to excellence.</p>
+                </div>
+                <div class="founder-image">
+                    <img src="gty.png" alt="Nsikan, Founder of Inseekan Leather">
+                    <div class="founder-quote">
+                        <p>"When you wear Inseekan, you're not just wearing shoes; you're walking in the footsteps of a master artisan."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <h2 class="section-title">The Inseekan Philosophy</h2>
+            <div class="philosophy-content">
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                    <div class="philosophy-text">
+                        <h3>Bespoke Experience</h3>
+                        <p>Nsikan collaborates closely with clients, listening to their
+                             preferences and desires, to craft unique footwear that perfectly 
+                             reflects their style and personality. Every pair begins with a personal consultation where clients choose style, material, color, and details.</p>
+                    </div>
+                </div>
+                
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="philosophy-text">
+                        <h3>Commitment to Excellence</h3>
+                        <p>Every shoe that bears the Inseekan label is a testament to Nsikan's commitment to excellence. His meticulous attention to detail, from selecting the finest leather to hand-stitching each component, ensures that each pair is a work of art that stands the test of time.</p>
+                    </div>
+                </div>
+                
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="philosophy-text">
+                        <h3>Cultural Preservation</h3>
+                        <p>Nsikan is dedicated to preserving traditional Nigerian leatherworking techniques while training the next generation of artisans. He believes in empowering local craftsmen and supporting Nigerian leather production through fair wages and skills development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- Craftsmanship Section -->
+    <section class="craftsmanship">
+        <div class="container">
+            <h2 class="section-title">The Craft Continues</h2>
+            <div class="craft-content">
+                <div class="craft-text">
+                    <p>Today, Nsikan continues to personally oversee the creation of every pair of Inseekan shoes. His process remains deeply hands-on:</p>
+                    <ul style="list-style: none; margin: 20px 0;">
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
+                            <strong>Personal Consultations:</strong> Nsikan meets with each client to understand their needs, preferences, and style
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
+                            <strong>Material Selection:</strong> He personally selects every hide of leather, ensuring only the finest materials are used
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
+                            <strong>Pattern Creation:</strong> Each design is individually crafted to the client's measurements and preferences
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--gold); position: absolute; left: 0; top: 5px;"></i>
+                            <strong>Quality Control:</strong> Nsikan inspects every pair before it leaves the workshop, ensuring it meets his exacting standards
+                        </li>
+                    </ul>
+                    <p>This personal involvement ensures that every pair of Inseekan footwear not only looks exceptional but provides comfort and durability that lasts for years.</p>
+                </div>
+                <div class="craft-video">
+                    <video controls autoplay muted loop>
+                        <source src="k (4).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience Nsikan's Craftsmanship</h2>
+            <p>Ready to own a pair of bespoke footwear crafted under the personal supervision of Nsikan himself? Visit our workshop or schedule a consultation to begin your journey to the perfect pair.</p>
+            <a href="contact.html" class="btn">Schedule a Consultation</a>
+        </div>
+    </section>
+<section class="about" id="about">
+        <div class="container">
+          
+            <div class="about-content">
+                <div class="about-text">
+                    <h1>   <BR><BR><BR>Inseekan Leather embodies the rich tradition of Nigerian craftsmanship combined with contemporary design sensibilities. Each pair of our bespoke footwear is a testament to the skill and dedication of our artisans.</p>
+                    <p>we take pride in creating exceptional leather slippers, sandals, and shoes that reflect the luxury and vibrancy of African culture while providing unparalleled comfort and durability.</p>
+                    <h2>Our process involves careful selection of premium leathers, meticulous hand-cutting, and traditional stitching techniques that have been passed down through generations.</p>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Inseekan Africa </div>
+                    <p>Crafting exceptional bespoke footwear in Abuja with passion and precision.</p>
+                </div>
+                
+                <div>
+                    <h3>Every pair we create tells a story </h3>
+                   
+                </div>
+                
+                <div>
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
+                      
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; Inseekan . All rights reserved. | Handcrafted in Abuja, Nigeria</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

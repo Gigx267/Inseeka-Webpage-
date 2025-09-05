@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Commission | Inseekan Leather | Bespoke Footwear Abuja</title>
+     <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-icon {
+            display: none;
+            font-size: 24px;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            height: 40vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('m (3).jpg') center/cover no-repeat;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: var(--text);
+        }
+        
+        .breadcrumb li a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .breadcrumb li::after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--text);
+        }
+        
+        .breadcrumb li:last-child::after {
+            content: '';
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            padding: 30px;
+            background-color: var(--dark-element);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+        }
+        
+        .contact-info h2 {
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .info-item i {
+            font-size: 24px;
+            color: var(--gold);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .info-details h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .social-contact {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-contact a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-contact a:hover {
+            background-color: var(--gold);
+            color: var(--dark-bg);
+        }
+        
+        /* Commission Form */
+        .commission-form {
+            padding: 30px;
+            background-color: var(--dark-element);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+        }
+        
+        .commission-form h2 {
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .commission-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(198, 164, 103, 0.3);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            border: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Process Steps */
+        .process-section {
+            padding: 80px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .step-card i {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .step-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(198, 164, 103, 0.2);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: var(--dark-element);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--dark-bg);
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 300px;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .map-container {
+            height: 400px;
+            border: 1px solid rgba(198, 164, 103, 0.2);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-icon {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--dark-element);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 50px 0;
+                transition: left 0.3s;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+                text-align: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class=""></i>
+                Inseekan - More Than Shoes
+            </a>
+            
+            <div class="nav-icon" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collection.html">Collection</a></li>
+                    <li><a href="founder.html">Founder</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   
+
+    <!-- Contact Section -->
+   
+
+    <!-- Process Steps -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">The Commission Process</h2>
+            
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-comments"></i>
+                    <h3>Consultation</h3>
+                    <p>We discuss your style preferences, needs, and take precise measurements.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-palette"></i>
+                    <h3>Design</h3>
+                    <p>We create sketches and help you select materials, colors, and details.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-hammer"></i>
+                    <h3>Crafting</h3>
+                    <p>Our artisans handcraft your footwear using traditional techniques.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-shoe-prints"></i>
+                    <h3>Fitting & Delivery</h3>
+                    <p>We ensure perfect fit and deliver your bespoke footwear.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+div class="container-fluid contact">
+         <div class="row">
+            <div class="col-md-10 offset-md-1">
+               <div class="row">
+                  <div class="col-md-6 col-sm-12">
+                     <p>
+                       
+                        <button> 
+                           <a style="display: inline-block;
+                           padding: 10px 20px;
+                           font-size: 16px;
+                           background-color: #0a0909;
+                           color: #fdf8f8;
+                           border: 2px solid #000;
+                           text-align: center;
+                          
+                           cursor: pointer;
+                           transition: background-color 0.3s, color 0.3s;
+                           " href="https://api.whatsapp.com/message/XCOJNPGDYCMDA1?autoload=1&app_absent=0"> Click To Message Through Whatsapp </a>
+                         </button>
+                       
+                  
+                     <p>
+                        PLACE AN ORDER WITH US TODAY AND EXPERIENCE EXCELLENT CRAFTSMANSHIP, COMFORTABILITY AND STYLE.<br>
+                        <button>     <a  style="display: inline-block;
+                           padding: 10px 20px;
+                           font-size: 16px;
+                           background-color: #0a0909;
+                           color: #fdf8f8;
+                           border: 2px solid #000;
+                           text-align: center;
+                          
+                           border-radius: 5px; "  href=" https://www.instagram.com/inseekan/?img_index=1">Click To  Message On Instagram </a><br>  </button><br>
+                        Abuja, Nigeria <br>
+                        We Ship Worldwide<br>
+                        TEL. +234 813 227 5689
+                     </p>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does it take to commission a pair?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline varies based on complexity and current workload. Typically, bespoke orders take between 3-6 weeks from initial consultation to final delivery. Rush orders may be accommodated with an additional fee.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to visit your workshop in person?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While an in-person visit is ideal for precise measurements and material selection, we do accommodate remote commissions. We can guide you through self-measurement and provide material samples shipped to your location.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your pricing range?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our bespoke footwear starts at ₦25,000 for simple designs and can go up to ₦150,000 or more for complex designs with exotic materials. The final price depends on materials, complexity, and detailing required.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I provide my own design?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We welcome custom designs and can work with your sketches or inspiration images to create exactly what you envision. Our artisans will consult with you on feasibility and recommend adjustments if needed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer international shipping?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we ship worldwide. Shipping costs and timelines vary by destination. Typically, international deliveries take 1-3 weeks after completion, depending on the destination and customs processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+   
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Inseekan Africa</div>
+                    <p>Crafting exceptional bespoke footwear in Abuja with passion and precision.</p>
+                </div>
+                
+                <div>
+                    <h3>Every pair we create tells a story</h3>
+                </div>
+                
+                <div>
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; Inseekan. All rights reserved. | Handcrafted in Abuja, Nigeria</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle active class
+                answer.classList.toggle('active');
+                
+                // Change icon
+                if (answer.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+                
+                // Close other open FAQs
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        const otherIcon = otherQuestion.querySelector('i');
+                        
+                        otherAnswer.classList.remove('active');
+                        otherIcon.classList.remove('fa-chevron-up');
+                        otherIcon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+        
+        // Form Submission
+        const commissionForm = document.getElementById('commissionForm');
+        
+        commissionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const style = document.getElementById('style').value;
+            const details = document.getElementById('details').value;
+            
+            if (!name || !email || !phone || !style || !details) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            // For now, we'll show a success message
+            alert('Thank you for your commission request! We will contact you within 24 hours to discuss your bespoke footwear.');
+            commissionForm.reset();
+        });
+    </script>
+</body>
+</html>
