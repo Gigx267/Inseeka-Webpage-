@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Commission | Inseekan Leather | Bespoke Footwear Abuja</title>
-     <!-- Favicon -->
+    <title>Inseekan Leather | Bespoke Footwear Abuja</title>
+    <!-- Favicon -->
     <link rel="icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -104,180 +104,67 @@
             cursor: pointer;
         }
         
-        /* Page Header */
-        .page-header {
-            height: 40vh;
+        /* Hero Section with Video Background */
+        .hero {
+            height: 110vh;
             position: relative;
             display: flex;
             align-items: center;
             text-align: center;
-            padding-top: 120px;
+            padding-top: 80px;
             overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('m (3).jpg') center/cover no-repeat;
-            margin-bottom: 60px;
         }
         
-        .page-header h1 {
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
         
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        .breadcrumb li {
-            margin: 0 10px;
-            color: var(--text);
-        }
-        
-        .breadcrumb li a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-        
-        .breadcrumb li::after {
-            content: '/';
-            margin-left: 10px;
-            color: var(--text);
-        }
-        
-        .breadcrumb li:last-child::after {
-            content: '';
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            padding: 60px 0;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .contact-info {
-            padding: 30px;
-            background-color: var(--dark-element);
-            border: 1px solid rgba(198, 164, 103, 0.2);
-        }
-        
-        .contact-info h2 {
+        .hero p {
+            font-size: 1.2rem;
             margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .contact-info h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: var(--gold);
-        }
-        
-        .info-item {
-            display: flex;
-            margin-bottom: 25px;
-        }
-        
-        .info-item i {
-            font-size: 24px;
-            color: var(--gold);
-            margin-right: 15px;
-            min-width: 30px;
-        }
-        
-        .info-details h4 {
-            margin-bottom: 5px;
-            font-size: 18px;
-        }
-        
-        .social-contact {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .social-contact a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-        
-        .social-contact a:hover {
-            background-color: var(--gold);
-            color: var(--dark-bg);
-        }
-        
-        /* Commission Form */
-        .commission-form {
-            padding: 30px;
-            background-color: var(--dark-element);
-            border: 1px solid rgba(198, 164, 103, 0.2);
-        }
-        
-        .commission-form h2 {
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .commission-form h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: var(--gold);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(198, 164, 103, 0.3);
             color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
         }
         
         .btn {
@@ -286,14 +173,11 @@
             color: var(--dark-bg);
             padding: 12px 30px;
             text-decoration: none;
-            border: none;
             border-radius: 2px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
         }
         
         .btn:hover {
@@ -301,115 +185,285 @@
             transform: translateY(-2px);
         }
         
-        /* Process Steps */
-        .process-section {
-            padding: 80px 0;
+        /* About Section */
+        .about {
+            padding: 100px 0;
             background-color: var(--dark-element);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            background-color: var(--dark-bg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .product-card {
+            background-color: var(--dark-element);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 450px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .price {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: var(--light-gold);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: var(--dark-element);
         }
         
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
         
-        .step-card {
+        .step {
             text-align: center;
             padding: 30px;
             background-color: var(--dark-bg);
             border: 1px solid rgba(198, 164, 103, 0.2);
-            position: relative;
         }
         
-        .step-number {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background-color: var(--gold);
-            color: var(--dark-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        .step-card i {
+        .step i {
             font-size: 40px;
             color: var(--gold);
             margin-bottom: 20px;
         }
         
-        .step-card h3 {
+        .step h3 {
             margin-bottom: 15px;
         }
         
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 0;
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
         }
         
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
         
-        .faq-item {
-            margin-bottom: 20px;
-            border: 1px solid rgba(198, 164, 103, 0.2);
-        }
-        
-        .faq-question {
-            padding: 20px;
+        .testimonial {
             background-color: var(--dark-element);
-            cursor: pointer;
+            padding: 30px;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .client {
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
         
-        .faq-question h3 {
-            margin: 0;
-            font-size: 18px;
+        .client-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
         }
         
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        /* Craftsmanship Section */
+        .craftsmanship {
+            padding: 80px 0;
+        }
+        
+        .craft-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .craft-text {
+            flex: 1;
+        }
+        
+        .craft-video {
+            flex: 1;
+        }
+        
+        .craft-video video {
+            width: 100%;
+            height: 150%;
+            display: block;
+            border: 1px solid var(--gold);
+            padding: 10px;
             background-color: var(--dark-bg);
         }
         
-        .faq-answer.active {
-            padding: 20px;
-            max-height: 300px;
-        }
-        
-        /* Map Section */
-        .map-section {
-            padding: 60px 0;
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
             background-color: var(--dark-element);
         }
         
-        .map-container {
-            height: 400px;
-            border: 1px solid rgba(198, 164, 103, 0.2);
+        .contact-content {
+            display: flex;
+            gap: 50px;
         }
         
-        .map-container iframe {
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .info-item i {
+            font-size: 24px;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+        
+        .form-group input, .form-group textarea {
             width: 100%;
-            height: 100%;
-            border: none;
+            padding: 12px;
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(198, 164, 103, 0.3);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
         }
         
         /* Footer */
@@ -459,14 +513,32 @@
             font-size: 14px;
         }
         
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
-            .page-header h1 {
-                font-size: 2.8rem;
+            .about-content, .contact-content {
+                flex-direction: column;
             }
             
-            .form-row {
-                grid-template-columns: 1fr;
+            .hero h1 {
+                font-size: 2.8rem;
             }
         }
         
@@ -496,12 +568,238 @@
                 text-align: center;
             }
             
-            .page-header h1 {
+            .hero h1 {
                 font-size: 2.2rem;
             }
             
-            .process-steps {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Cart Styles */
+        .cart-notification {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--gold);
+            color: var(--dark-bg);
+            padding: 0.9rem 1.25rem;
+            border-radius: 50px;
+            opacity: 0;
+            transition: all 0.5s;
+            font-size: 1rem;
+            z-index: 9999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+        
+        .cart-notification.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Floating Cart Button */
+        .cart-action-btn {
+            position: fixed;
+            bottom: 85px;
+            right: 40px;
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50%;
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .cart-action-btn:hover {
+            background: var(--light-gold);
+            transform: scale(1.08);
+        }
+        
+        #cartCountBadge {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: var(--dark-bg);
+            color: var(--gold);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+        }
+        
+        /* Cart Modal */
+        .cart-modal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .cart-modal-bg.active {
+            display: flex;
+        }
+        
+        .cart-modal {
+            background: var(--dark-element);
+            border-radius: 8px;
+            box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+            padding: 2rem;
+            max-width: 96vw;
+            width: 400px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInModal 0.22s;
+            border: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        @keyframes fadeInModal {
+            from {
+                transform: scale(0.97);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .cart-modal h2 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.01rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .cart-modal-close {
+            position: absolute;
+            right: 1.2rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: var(--text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .cart-modal-close:hover {
+            color: var(--gold);
+        }
+        
+        .send-whatsapp-btn {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.08rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .send-whatsapp-btn:hover {
+            background: var(--light-gold);
+            transform: scale(1.02);
+        }
+        
+        #orderForm input, #orderForm textarea {
+            width: 100%;
+            margin: 0.5rem 0;
+            border: 1px solid rgba(198, 164, 103, 0.3);
+            border-radius: 4px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        #orderForm input:focus, #orderForm textarea:focus {
+            border-color: var(--gold);
+        }
+        
+        #orderForm textarea {
+            resize: vertical;
+            min-height: 80px;
+            max-height: 120px;
+        }
+        
+        #cartTotal {
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.2rem;
+            text-align: right;
+            margin: 1rem 0;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Responsive adjustments for cart */
+        @media (max-width: 600px) {
+            .cart-action-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 1.2rem;
+                right: 18px;
+                bottom: 70px;
+            }
+            
+            #cartCountBadge {
+                width: 17px;
+                height: 17px;
+                font-size: 0.7rem;
+                top: 7px;
+                right: 11px;
+            }
+            
+            .cart-modal {
+                width: 95vw;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -510,7 +808,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-content">
-            <a href="index.html" class="logo">
+            <a href="logo.png" class="logo">
                 <i class=""></i>
                 Inseekan - More Than Shoes
             </a>
@@ -531,153 +829,186 @@
         </div>
     </header>
 
+    <!-- Hero Section with Video Background -->
    
 
-    <!-- Contact Section -->
+    
+
    
 
-    <!-- Process Steps -->
-    <section class="process-section">
+    <!-- Products Section 1 -->
+    <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">The Commission Process</h2>
-            
-            <div class="process-steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <i class="fas fa-comments"></i>
-                    <h3>Consultation</h3>
-                    <p>We discuss your style preferences, needs, and take precise measurements.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <i class="fas fa-palette"></i>
-                    <h3>Design</h3>
-                    <p>We create sketches and help you select materials, colors, and details.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <i class="fas fa-hammer"></i>
-                    <h3>Crafting</h3>
-                    <p>Our artisans handcraft your footwear using traditional techniques.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <i class="fas fa-shoe-prints"></i>
-                    <h3>Fitting & Delivery</h3>
-                    <p>We ensure perfect fit and deliver your bespoke footwear.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-div class="container-fluid contact">
-         <div class="row">
-            <div class="col-md-10 offset-md-1">
-               <div class="row">
-                  <div class="col-md-6 col-sm-12">
-                     <p>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (39).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Oxford Brown </h3>
                        
-                        <button> 
-                           <a style="display: inline-block;
-                           padding: 10px 20px;
-                           font-size: 16px;
-                           background-color: #0a0909;
-                           color: #fdf8f8;
-                           border: 2px solid #000;
-                           text-align: center;
-                          
-                           cursor: pointer;
-                           transition: background-color 0.3s, color 0.3s;
-                           " href="https://api.whatsapp.com/message/XCOJNPGDYCMDA1?autoload=1&app_absent=0"> Click To Message Through Whatsapp </a>
-                         </button>
-                       
-                  
-                     <p>
-                        PLACE AN ORDER WITH US TODAY AND EXPERIENCE EXCELLENT CRAFTSMANSHIP, COMFORTABILITY AND STYLE.<br>
-                        <button>     <a  style="display: inline-block;
-                           padding: 10px 20px;
-                           font-size: 16px;
-                           background-color: #0a0909;
-                           color: #fdf8f8;
-                           border: 2px solid #000;
-                           text-align: center;
-                          
-                           border-radius: 5px; "  href=" https://www.instagram.com/inseekan/?img_index=1">Click To  Message On Instagram </a><br>  </button><br>
-                        Abuja, Nigeria <br>
-                        We Ship Worldwide<br>
-                        TEL. +234 813 227 5689
-                     </p>
-                     
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How long does it take to commission a pair?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The timeline varies based on complexity and current workload. Typically, bespoke orders take between 3-6 weeks from initial consultation to final delivery. Rush orders may be accommodated with an additional fee.</p>
+                        <div class="price">₦85,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Oxford" data-price="85000">
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do I need to visit your workshop in person?</h3>
-                        <i class="fas fa-chevron-down"></i>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (38).jpg" alt="Designer Loafers">
                     </div>
-                    <div class="faq-answer">
-                        <p>While an in-person visit is ideal for precise measurements and material selection, we do accommodate remote commissions. We can guide you through self-measurement and provide material samples shipped to your location.</p>
+                    <div class="product-info">
+                        <h3>Designer Boots </h3>
+                
+                        <div class="price">₦78,000</div>
+                        <button class="add-to-cart-btn" data-name="Designer Loafers" data-price="78000">
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What is your pricing range?</h3>
-                        <i class="fas fa-chevron-down"></i>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (35).jpg" alt="Executive Brogues">
                     </div>
-                    <div class="faq-answer">
-                        <p>Our bespoke footwear starts at ₦25,000 for simple designs and can go up to ₦150,000 or more for complex designs with exotic materials. The final price depends on materials, complexity, and detailing required.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Can I provide my own design?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! We welcome custom designs and can work with your sketches or inspiration images to create exactly what you envision. Our artisans will consult with you on feasibility and recommend adjustments if needed.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do you offer international shipping?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we ship worldwide. Shipping costs and timelines vary by destination. Typically, international deliveries take 1-3 weeks after completion, depending on the destination and customs processing.</p>
+                    <div class="product-info">
+                        <h3>Executive Brogues</h3>
+                   
+                        <div class="price">₦72,000</div>
+                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="72000">
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Map Section -->
-   
-
-    <!-- Footer -->
+     <!-- Products Section 2 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Lastest Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (1).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Oxford</h3>
+                        <p>Handcrafted leather oxford shoes with impeccable detailing.</p>
+                        <div class="price">₦45,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Oxford" data-price="45000">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (3).jpg" alt="Designer Loafers">
+                    </div>
+                    <div class="product-info">
+                        <h3>Designer Loafers</h3>
+                        <p>Premium leather loafers with contemporary design elements.</p>
+                        <div class="price">₦38,000</div>
+                        <button class="add-to-cart-btn" data-name="Designer Loafers" data-price="38000">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (5).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3>Executive Brogues</h3>
+                        <p>Elegant brogue shoes perfect for formal occasions.</p>
+                        <div class="price">₦42,000</div>
+                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="42000">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Lastest Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (13).jpg" alt="Classic Handcrafted">
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Handcrafted</h3>
+                        <p>Handcrafted leather oxford shoes with impeccable detailing.</p>
+                        <div class="price">₦75,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Oxford" data-price="75000">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (17).jpg" alt="Designer Loafers">
+                    </div>
+                    <div class="product-info">
+                        <h3>Exclusive  Loafers</h3>
+                        <p>Premium leather loafers with contemporary design elements.</p>
+                        <div class="price">₦38,000</div>
+                        <button class="add-to-cart-btn" data-name="Designer Loafers" data-price="38000">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (18).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3>Formal Rares </h3>
+                        <p>Elegant brogue shoes perfect for formal occasions.</p>
+                        <div class="price">₦42,000</div>
+                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="42000">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our process involves careful selection of premium leathers, meticulous hand-cutting, and traditional stitching techniques that have been passed down through generations.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience Nsikan's Craftsmanship</h2>
+            <p>Ready to own a pair of bespoke footwear crafted under the personal supervision of Nsikan himself? Visit our workshop or schedule a consultation to begin your journey to the perfect pair.</p>
+            <a href="contact.html" class="btn">Schedule a Consultation</a>
+        </div>
+    </section>
+    
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -694,8 +1025,6 @@ div class="container-fluid contact">
                     <h3>Connect With Us</h3>
                     <div class="social-links">
                         <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
@@ -705,6 +1034,31 @@ div class="container-fluid contact">
             </div>
         </div>
     </footer>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification"><span></span></div>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal-bg" id="cartModalBg">
+        <div class="cart-modal">
+            <button class="cart-modal-close" id="cartModalClose" title="Close">&times;</button>
+            <h2>Your Order</h2>
+            <div id="cartItemsList"></div>
+            <div id="cartTotal"></div>
+            <form id="orderForm">
+                <input type="text" id="customerName" required placeholder="Your name">
+                <input type="text" id="customerPhone" required placeholder="e.g. 08012345678">
+                <textarea id="customerNote" rows="2" placeholder="Shoe size, color preferences, special requests..."></textarea>
+                <button type="submit" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Floating Cart Button -->
+    <button class="cart-action-btn" id="cartActionBtn" title="View Cart" style="display:none;">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCountBadge">0</span>
+    </button>
 
     <script>
         // Mobile Navigation Toggle
@@ -735,62 +1089,136 @@ div class="container-fluid contact">
             });
         });
         
-        // FAQ Accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Toggle active class
-                answer.classList.toggle('active');
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                // Change icon
-                if (answer.classList.contains('active')) {
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                } else {
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
-                
-                // Close other open FAQs
-                faqQuestions.forEach(otherQuestion => {
-                    if (otherQuestion !== question) {
-                        const otherAnswer = otherQuestion.nextElementSibling;
-                        const otherIcon = otherQuestion.querySelector('i');
-                        
-                        otherAnswer.classList.remove('active');
-                        otherIcon.classList.remove('fa-chevron-up');
-                        otherIcon.classList.add('fa-chevron-down');
-                    }
-                });
             });
         });
         
-        // Form Submission
-        const commissionForm = document.getElementById('commissionForm');
+        // --- Cart functionality ---
+        const cart = [];
+        const cartActionBtn = document.getElementById('cartActionBtn');
         
-        commissionForm.addEventListener('submit', (e) => {
+        function updateCartBadge() {
+            document.getElementById('cartCountBadge').textContent = cart.length;
+        }
+        
+        function showCartNotification(msg) {
+            const cartNotification = document.getElementById('cartNotification');
+            cartNotification.querySelector('span').textContent = msg;
+            cartNotification.classList.add('show');
+            setTimeout(() => cartNotification.classList.remove('show'), 1800);
+        }
+        
+        // Add to cart buttons
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.onclick = () => {
+                const name = button.getAttribute('data-name');
+                const price = button.getAttribute('data-price');
+                cart.push({ name, price: Number(price) });
+                updateCartBadge();
+                showCartNotification(`${name} added to cart!`);
+                cartActionBtn.style.display = "flex";
+            };
+        });
+        
+        function renderCartModal() {
+            const listDiv = document.getElementById('cartItemsList');
+            listDiv.innerHTML = cart.length ? '' : '<p>Your cart is empty.</p>';
+            let total = 0;
+            
+            cart.forEach((item, idx) => {
+                total += item.price;
+                const row = document.createElement('div');
+                row.className = 'cart-item-row';
+                row.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>₦${item.price.toLocaleString()}</span>
+                    <button style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:1.2rem;" 
+                            title="Remove" onclick="removeCartItem(${idx})">
+                        <i class="fas fa-trash"></i>
+                    </button>`;
+                listDiv.appendChild(row);
+            });
+            
+            document.getElementById('cartTotal').textContent = cart.length ? 
+                `Total: ₦${total.toLocaleString()}` : '';
+        }
+        
+        window.removeCartItem = idx => {
+            cart.splice(idx, 1);
+            updateCartBadge();
+            renderCartModal();
+            cartActionBtn.style.display = cart.length ? "flex" : "none";
+        };
+        
+        cartActionBtn.onclick = () => {
+            renderCartModal();
+            document.getElementById('cartModalBg').classList.add('active');
+        };
+        
+        document.getElementById('cartModalClose').onclick = () =>
+            document.getElementById('cartModalBg').classList.remove('active');
+        
+        document.getElementById('cartModalBg').onclick = e => {
+            if (e.target === document.getElementById('cartModalBg'))
+                document.getElementById('cartModalBg').classList.remove('active');
+        };
+        
+        document.getElementById('orderForm').onsubmit = function(e) {
             e.preventDefault();
+            if (!cart.length) return alert("Your cart is empty! Please add items.");
             
-            // Basic form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const style = document.getElementById('style').value;
-            const details = document.getElementById('details').value;
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const note = document.getElementById('customerNote').value.trim();
             
-            if (!name || !email || !phone || !style || !details) {
-                alert('Please fill in all required fields.');
-                return;
+            let message = `*Inseekan Leather Order*\nName: ${name}\nPhone: ${phone}\n\n*Order:*\n`;
+            cart.forEach((item, i) => {
+                message += `${i+1}. ${item.name} - ₦${item.price.toLocaleString()}\n`;
+            });
+            
+            message += `\nTotal: ₦${cart.reduce((s,x)=>s+x.price,0).toLocaleString()}\n`;
+            if (note) message += `\nNote: ${note}`;
+            message += `\n\nThank you!`;
+            
+            // Using the WhatsApp number from the provided link
+            const whatsappNumber = "2348160348696";
+            const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(waURL, "_blank");
+            document.getElementById('cartModalBg').classList.remove('active');
+            
+            // Clear cart after order
+            cart.length = 0;
+            updateCartBadge();
+            cartActionBtn.style.display = "none";
+            
+            // Reset form
+            document.getElementById('orderForm').reset();
+        };
+        
+        // Keyboard shortcut for cart (Accessibility)
+        document.addEventListener('keydown', function(e) {
+            // Alt+C to open cart modal
+            if ((e.altKey || e.ctrlKey) && e.key.toLowerCase() === 'c') {
+                if (cart.length) {
+                    renderCartModal();
+                    document.getElementById('cartModalBg').classList.add('active');
+                }
             }
-            
-            // In a real application, you would send this data to a server
-            // For now, we'll show a success message
-            alert('Thank you for your commission request! We will contact you within 24 hours to discuss your bespoke footwear.');
-            commissionForm.reset();
         });
     </script>
 </body>
