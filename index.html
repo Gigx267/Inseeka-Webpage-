@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inseekan Leather | Bespoke Footwear Abuja</title>
-     <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -43,15 +43,16 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
         /* Header & Navigation */
         header {
-            background-color: rgba(10, 10, 10, 0.9);
+            background-color: rgba(10, 10, 10, 0.95);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(198, 164, 103, 0.3);
         }
         
@@ -63,16 +64,17 @@
         
         .logo {
             font-family: 'Cinzel', serif;
-            font-size: 28px;
+            font-size: 20px;
             color: var(--gold);
             text-decoration: none;
             display: flex;
             align-items: center;
         }
         
-        .logo i {
+        .logo img {
+            height: 35px;
             margin-right: 10px;
-            color: var(--gold);
+            border-radius: 50%;
         }
         
         nav ul {
@@ -81,16 +83,17 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 25px;
         }
         
         nav ul li a {
             color: var(--text);
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
+            padding: 5px 0;
         }
         
         nav ul li a:hover {
@@ -102,16 +105,18 @@
             font-size: 24px;
             color: var(--gold);
             cursor: pointer;
+            z-index: 1001;
         }
         
         /* Hero Section with Video Background */
         .hero {
-            height: 110vh;
+            height: 100vh;
+            min-height: 600px;
             position: relative;
             display: flex;
             align-items: center;
             text-align: center;
-            padding-top: 80px;
+            padding-top: 70px;
             overflow: hidden;
         }
         
@@ -148,22 +153,31 @@
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 90%;
             margin: 0 auto;
             padding: 20px;
             position: relative;
             z-index: 1;
         }
         
+        .hero-content img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            opacity: 0.9;
+        }
+        
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
             line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
             color: var(--text);
         }
         
@@ -171,13 +185,15 @@
             display: inline-block;
             background-color: var(--gold);
             color: var(--dark-bg);
-            padding: 12px 30px;
+            padding: 14px 30px;
             text-decoration: none;
             border-radius: 2px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
+            font-size: 14px;
+            min-width: 200px;
         }
         
         .btn:hover {
@@ -185,15 +201,15 @@
             transform: translateY(-2px);
         }
         
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: var(--dark-element);
+        /* Story Section */
+        .story {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             position: relative;
         }
         
@@ -208,260 +224,95 @@
             background-color: var(--gold);
         }
         
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .story-text {
+            padding: 25px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .story-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .story-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 60px 0;
+            background-color: var(--dark-element);
+        }
+        
         .about-content {
             display: flex;
-            align-items: center;
-            gap: 50px;
+            flex-direction: column;
+            gap: 30px;
         }
         
         .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border: 1px solid var(--gold);
-            padding: 10px;
-            background-color: var(--dark-bg);
-        }
-        
-        .about-image img {
-            width: 100%;
-            display: block;
-        }
-        
-        /* Products Section */
-        .products {
-            padding: 100px 0;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .product-card {
-            background-color: var(--dark-element);
-            border: 1px solid rgba(198, 164, 103, 0.2);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .product-image {
-            height: 450px;
-            overflow: hidden;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-info h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-        
-        .product-info p {
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-        
-        .price {
-            color: var(--gold);
-            font-weight: 500;
-            font-size: 1.2rem;
-        }
-        
-        /* Process Section */
-        .process {
-            padding: 100px 0;
-            background-color: var(--dark-element);
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .step {
             text-align: center;
-            padding: 30px;
-            background-color: var(--dark-bg);
-            border: 1px solid rgba(198, 164, 103, 0.2);
         }
         
-        .step i {
-            font-size: 40px;
-            color: var(--gold);
+        .about-text h2 {
+            font-size: 1.5rem;
             margin-bottom: 20px;
         }
         
-        .step h3 {
-            margin-bottom: 15px;
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
         }
         
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .testimonial {
-            background-color: var(--dark-element);
-            padding: 30px;
-            border-left: 3px solid var(--gold);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
+        .cta-section h2 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
         }
         
-        .client {
-            display: flex;
-            align-items: center;
-        }
-        
-        .client-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .client-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .client-info h4 {
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-         /* Craftsmanship Section */
-        .craftsmanship {
-            padding: 80px 0;
-        }
-        
-        .craft-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .craft-text {
-            flex: 1;
-        }
-        
-        .craft-video {
-            flex: 1;
-        }
-        
-        .craft-video video {
-            width: 100%;
-            height: 150%;
-            display: block;
-            border: 1px solid var(--gold);
-            padding: 10px;
-            background-color: var(--dark-bg);
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background-color: var(--dark-element);
-        }
-        
-        .contact-content {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info, .contact-form {
-            flex: 1;
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .info-item i {
-            font-size: 24px;
-            color: var(--gold);
-            margin-right: 15px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text);
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--dark-bg);
-            border: 1px solid rgba(198, 164, 103, 0.3);
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
+        .cta-section p {
+            max-width: 100%;
+            margin: 0 auto 30px;
+            font-size: 16px;
+            padding: 0 15px;
         }
         
         /* Footer */
         footer {
             background-color: var(--dark-bg);
-            padding: 50px 0 20px;
+            padding: 40px 0 20px;
             text-align: center;
             border-top: 1px solid rgba(198, 164, 103, 0.3);
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         
         .footer-logo {
             font-family: 'Cinzel', serif;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--gold);
             margin-bottom: 15px;
         }
@@ -469,13 +320,13 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             margin-top: 20px;
         }
         
         .social-links a {
             color: var(--text);
-            font-size: 20px;
+            font-size: 24px;
             transition: color 0.3s;
         }
         
@@ -493,12 +344,12 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content, .contact-content {
-                flex-direction: column;
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .hero h1 {
-                font-size: 2.8rem;
+            nav ul li {
+                margin-left: 15px;
             }
         }
         
@@ -509,76 +360,142 @@
             
             nav ul {
                 position: fixed;
-                top: 80px;
-                left: -100%;
+                top: 0;
+                right: -100%;
                 flex-direction: column;
                 background-color: var(--dark-element);
-                width: 100%;
-                height: calc(100vh - 80px);
-                padding: 50px 0;
-                transition: left 0.3s;
+                width: 70%;
+                height: 100vh;
+                padding: 80px 30px 30px;
+                transition: right 0.3s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
             }
             
             nav ul.show {
-                left: 0;
+                right: 0;
             }
             
             nav ul li {
-                margin: 20px 0;
-                text-align: center;
+                margin: 15px 0;
+                text-align: left;
+            }
+            
+            nav ul li a {
+                font-size: 18px;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            .hero {
+                height: 90vh;
+                min-height: 500px;
+            }
+            
+            .hero-content img {
+                height: 70px;
+                width: 70px;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                min-width: 180px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo img {
+                height: 30px;
+                width: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 14px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+                min-width: 160px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .story-text p {
+                font-size: 15px;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .footer-logo {
+                font-size: 20px;
             }
         }
-         /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-        
-        .cta-section p {
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-size: 1.2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--dark-bg);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        
-     
-        
 
+        /* Animation Styles */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(-6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content h1 {
+            opacity: 0;
+            animation: fadeInUp 1.1s cubic-bezier(0.33,1,0.68,1) 0.2s forwards;
+        }
+
+        .hero-content p {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.33,1,0.68,1) 0.6s forwards;
+        }
+
+        .hero-content .btn {
+            opacity: 0;
+            animation: fadeIn 1s ease 1.2s forwards;
+        }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
     <header>
         <div class="container header-content">
-            <a href="logo.png" class="logo">
-                <i class=""></i>
-                Inseekan - More Than Shoes
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Inseekan Logo">
+                Inseekan
             </a>
             
             <div class="nav-icon" id="nav-toggle">
@@ -590,7 +507,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="collection.html">Collection</a></li>
-                     <li><a href="founder.html">Founder </a></li>
+                    <li><a href="founder.html">Founder</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -598,58 +515,32 @@
     </header>
 
     <!-- Hero Section with Video Background -->
-    <!-- Hero Section with Video Background -->
-<section class="hero">
-    <div class="video-background">
-        <video class="background-video" autoplay muted loop playsinline poster="m (2).heic">
-            <source src="vv4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay"></div>
-    </div>
+    <section class="hero">
+        <div class="video-background">
+            <video class="background-video" autoplay muted loop playsinline poster="">
+                <source src="vv4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
 
-    <div class="container hero-content">
-        <img style="height: 1.7cm; border-radius: 60%; opacity: 90%;animation: fadeInUp 1.1s cubic-bezier(0.33,1,0.68,1) 0.2s forwards;" src="logo.png" alt="Inseekan Logo">
-        <h1 style="color: #f8f6f6;">Bespoke Footwears</h1>
-        <p>Shoes That Reflect The Luxury Of Craftsmanship</p>
-        <a href="#contact" class="btn">Commission Your Pair</a>
-    </div>
-</section>
-<style> 
-    .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-}
+        <div class="container hero-content">
+            <img src="logo.png" alt="Inseekan Logo">
+            <h1>Bespoke Footwears</h1>
+            <p>Shoes That Reflect The Luxury Of Craftsmanship</p>
+            <a href="#contact" class="btn">Commission Your Pair</a>
+        </div>
+    </section>
 
-/* Optional: Hide native controls on mobile */
-video::-webkit-media-controls {
-    display: none !important;
-}
-
-</style>
     <!-- Story Section -->
     <section class="story">
         <div class="container">
             <h2 class="section-title">Our Heritage</h2>
             <div class="story-content">
                 <div class="story-text">
-                    <p>Inseekan Footwears  was born from a passion for preserving
-                        traditional Nigerian craftsmanship while meeting the demands of modern style.
-                         Our journey began recognizing a gap in the market for high-quality, locally-made
-                           footwear,  to create a brand that would showcase the best of Nigerian artistry.</p>
+                    <p>Inseekan Footwears was born from a passion for preserving traditional Nigerian craftsmanship while meeting the demands of modern style. Our journey began recognizing a gap in the market for high-quality, locally-made footwear, to create a brand that would showcase the best of Nigerian artistry.</p>
                   
-                    <p>Every pair we create tells a story - of skilled hands that cut and stitch, 
-                        of premium materials carefully selected, and of a client's unique personality
-                         expressed through design. We honor the time-honored techniques passed down 
-                         through generations while innovating to meet contemporary tastes.</p>
+                    <p>Every pair we create tells a story - of skilled hands that cut and stitch, of premium materials carefully selected, and of a client's unique personality expressed through design. We honor the time-honored techniques passed down through generations while innovating to meet contemporary tastes.</p>
                 </div>
                 <div class="story-image">
                     <img src="m (3).jpg" alt="Inseekan Leather Workshop">
@@ -658,273 +549,18 @@ video::-webkit-media-controls {
         </div>
     </section>
 
-    <style> 
-        .story {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    position: relative;
-}
-
-.story::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #8B4513, transparent);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2c1a1d;
-    margin-bottom: 60px;
-    position: relative;
-    font-family: 'Playfair Display', serif;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: #8B4513;
-}
-
-.story-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.story-text {
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #8B4513;
-}
-
-.story-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 25px;
-    font-family: 'Inter', sans-serif;
-}
-
-.story-text p:last-child {
-    margin-bottom: 0;
-}
-
-.story-image {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-.story-image img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    transition: transform 0.7s ease;
-    border-radius: 15px;
-}
-
-.story-image::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 2px solid rgba(139, 69, 19, 0.3);
-    border-radius: 12px;
-    pointer-events: none;
-    z-index: 2;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .story-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .story-text {
-        order: 2;
-    }
-    
-    .story-image {
-        order: 1;
-    }
-    
-    .section-title {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .story {
-        padding: 60px 0;
-    }
-    
-    .story-text {
-        padding: 30px;
-    }
-    
-    .story-text p {
-        font-size: 1rem;
-    }
-    
-    .story-image img {
-        height: 400px;
-    }
-}
-
-@media (max-width: 480px) {
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .story-text {
-        padding: 20px;
-    }
-    
-    .story-image img {
-        height: 300px;
-    }
-}
-    </style>
-
-    <script>
-// Intersection Observer for fade-in animation
-document.addEventListener('DOMContentLoaded', function() {
-    const storySection = document.querySelector('.story');
-    const storyContent = document.querySelector('.story-content');
-    
-    // Create Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, {
-        threshold: 0.3
-    });
-    
-    // Observe story content
-    observer.observe(storyContent);
-    
-    // Image hover effect
-    const storyImage = document.querySelector('.story-image img');
-    if (storyImage) {
-        storyImage.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-        });
-        
-        storyImage.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    }
-    
-    // Parallax effect on scroll
-    let lastScrollY = window.scrollY;
-    
-    function handleParallax() {
-        const scrolled = window.scrollY;
-        const storyImage = document.querySelector('.story-image');
-        
-        if (storyImage) {
-            const speed = 0.1;
-            const offset = (lastScrollY - scrolled) * speed;
-            storyImage.style.transform = `translateY(${offset}px)`;
-        }
-        
-        lastScrollY = scrolled;
-    }
-    
-    // Throttle the scroll event
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                handleParallax();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-});
-
-// Add CSS for animations
-const style = document.createElement('style');
-style.textContent = `
-    .story-content {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s ease-out;
-    }
-    
-    .story-content.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .story-text p {
-        opacity: 0;
-        transform: translateX(-30px);
-        transition: all 0.6s ease-out;
-    }
-    
-    .story-content.animate-in .story-text p {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    
-    .story-content.animate-in .story-text p:nth-child(1) {
-        transition-delay: 0.2s;
-    }
-    
-    .story-content.animate-in .story-text p:nth-child(2) {
-        transition-delay: 0.4s;
-    }
-    
-    .story-content.animate-in .story-text p:nth-child(3) {
-        transition-delay: 0.6s;
-    }
-    
-    .story-image {
-        transition: transform 0.3s ease-out;
-    }
-`;
-document.head.appendChild(style);
-
-    </script>
-    
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-          
             <div class="about-content">
                 <div class="about-text">
-                    
-                    
-                    <h2>Our process involves careful selection of premium leathers, meticulous hand-cutting, and traditional stitching techniques that have been passed down through generations.</p>
+                    <h2>Our process involves careful selection of premium leathers, meticulous hand-cutting, and traditional stitching techniques that have been passed down through generations.</h2>
                 </div>
-              
             </div>
         </div>
     </section>
+
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Experience Nsikan's Craftsmanship</h2>
@@ -932,99 +568,43 @@ document.head.appendChild(style);
             <a href="contact.html" class="btn">Schedule a Consultation</a>
         </div>
     </section>
-     <footer>
+
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">Inseekan Africa </div>
+                    <div class="footer-logo">Inseekan Africa</div>
                     <p>Crafting exceptional bespoke footwear in Abuja with passion and precision.</p>
                 </div>
                 
                 <div>
-                    <h3>Every pair we create tells a story </h3>
-                   
+                    <h3>Every pair we create tells a story</h3>
                 </div>
                 
                 <div>
                     <h3>Connect With Us</h3>
                     <div class="social-links">
                         <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
-                      
                     </div>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; Inseekan . All rights reserved. | Handcrafted in Abuja, Nigeria</p>
+                <p>&copy; Inseekan. All rights reserved. | Handcrafted in Abuja, Nigeria</p>
             </div>
         </div>
     </footer>
-<style>/* Add this CSS to your main stylesheet or in <style> tags */
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    80% {
-        opacity: 1;
-        transform: translateY(-6px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.hero-content h1 {
-    opacity: 0;
-    animation: fadeInUp 1.1s cubic-bezier(0.33,1,0.68,1) 0.2s forwards;
-}
-
-.hero-content p {
-    opacity: 0;
-    animation: fadeInUp 1s cubic-bezier(0.33,1,0.68,1) 0.6s forwards;
-}
-
-.hero-content .btn {
-    opacity: 0;
-    animation: fadeIn 1s ease 1.2s forwards;
-    transform: translateY(10px);
-} </style>
-
-<script>
-    // Optionally, if you want to trigger animations only when the video is loaded or after a delay, you can use this script.
-// Place it at the end of your <body> or after the .hero section.
-
-document.addEventListener('DOMContentLoaded', () => {
-    // This will ensure the animations only run once the page is ready
-    const h1 = document.querySelector('.hero-content h1');
-    const p = document.querySelector('.hero-content p');
-    const btn = document.querySelector('.hero-content .btn');
-
-    // Remove inline opacity to allow CSS animation to run (in case of SSR)
-    setTimeout(() => {
-        if(h1) h1.style.opacity = '';
-        if(p) p.style.opacity = '';
-        if(btn) btn.style.opacity = '';
-    }, 100); // Slight delay to trigger animations
-});
-</script>
-
-
-   
     <script>
         // Mobile Navigation Toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
+        const body = document.body;
         
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show');
+            body.classList.toggle('no-scroll');
             
             // Change icon based on menu state
             const icon = navToggle.querySelector('i');
@@ -1041,6 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('show');
+                body.classList.remove('no-scroll');
                 const icon = navToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
@@ -1050,13 +631,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
+                
                 if (targetElement) {
+                    // Close mobile menu if open
+                    if(navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        body.classList.remove('no-scroll');
+                        const icon = navToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -1064,6 +655,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // Prevent background video from playing on mobile when not in view to save data
+        let videoPlaying = true;
+        const backgroundVideo = document.querySelector('.background-video');
+        
+        function toggleVideo() {
+            if (window.innerWidth < 768) {
+                if (isInViewport(backgroundVideo)) {
+                    if (!videoPlaying) {
+                        backgroundVideo.play();
+                        videoPlaying = true;
+                    }
+                } else {
+                    if (videoPlaying) {
+                        backgroundVideo.pause();
+                        videoPlaying = false;
+                    }
+                }
+            }
+        }
+        
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Throttle function for scroll events
+        function throttle(func, wait) {
+            let timeout = null;
+            let previous = 0;
+            
+            return function() {
+                const now = Date.now();
+                const remaining = wait - (now - previous);
+                
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout);
+                        timeout = null;
+                    }
+                    
+                    previous = now;
+                    func.apply(this, arguments);
+                } else if (!timeout) {
+                    timeout = setTimeout(() => {
+                        previous = Date.now();
+                        timeout = null;
+                        func.apply(this, arguments);
+                    }, remaining);
+                }
+            };
+        }
+        
+        // Check video visibility on scroll (throttled for performance)
+        window.addEventListener('scroll', throttle(toggleVideo, 200));
+        
+        // Initial check
+        document.addEventListener('DOMContentLoaded', toggleVideo);
     </script>
 </body>
 </html>
