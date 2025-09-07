@@ -163,7 +163,7 @@
         .hero-content img {
             height: 80px;
             width: 80px;
-            border-radius: 50%;
+            border-radius: 40%;
             margin: 0 auto 20px;
             display: block;
             opacity: 0.9;
@@ -487,6 +487,12 @@
             opacity: 0;
             animation: fadeIn 1s ease 1.2s forwards;
         }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body>
@@ -656,68 +662,50 @@
             });
         });
 
-        // Prevent background video from playing on mobile when not in view to save data
-        let videoPlaying = true;
+        // Video handling - simplified to ensure it plays on mobile
         const backgroundVideo = document.querySelector('.background-video');
         
-        function toggleVideo() {
-            if (window.innerWidth < 768) {
-                if (isInViewport(backgroundVideo)) {
-                    if (!videoPlaying) {
-                        backgroundVideo.play();
-                        videoPlaying = true;
-                    }
-                } else {
-                    if (videoPlaying) {
-                        backgroundVideo.pause();
-                        videoPlaying = false;
-                    }
-                }
+        // Ensure video plays on mobile
+        function ensureVideoPlays() {
+            if (backgroundVideo) {
+                backgroundVideo.play().catch(error => {
+                    console.log('Video play failed, trying again with user gesture:', error);
+                    // If autoplay is blocked, wait for user interaction
+                    document.body.addEventListener('click', function tryPlayAgain() {
+                        backgroundVideo.play().then(() => {
+                            document.body.removeEventListener('click', tryPlayAgain);
+                        }).catch(e => {
+                            console.log('Still cannot play video:', e);
+                        });
+                    }, { once: true });
+                });
             }
         }
         
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
+        // Try to play video when page loads
+        document.addEventListener('DOMContentLoaded', ensureVideoPlays);
+        
+        // Also try when the page is fully loaded
+        window.addEventListener('load', ensureVideoPlays);
+        
+        // iOS specific fix - videos on iOS need to be played inline
+        function isIOS() {
+            return [
+                'iPad Simulator',
+                'iPhone Simulator',
+                'iPod Simulator',
+                'iPad',
+                'iPhone',
+                'iPod'
+            ].includes(navigator.platform) || 
+            (navigator.userAgent.includes("Mac") && "ontouchend" in document);
         }
         
-        // Throttle function for scroll events
-        function throttle(func, wait) {
-            let timeout = null;
-            let previous = 0;
-            
-            return function() {
-                const now = Date.now();
-                const remaining = wait - (now - previous);
-                
-                if (remaining <= 0 || remaining > wait) {
-                    if (timeout) {
-                        clearTimeout(timeout);
-                        timeout = null;
-                    }
-                    
-                    previous = now;
-                    func.apply(this, arguments);
-                } else if (!timeout) {
-                    timeout = setTimeout(() => {
-                        previous = Date.now();
-                        timeout = null;
-                        func.apply(this, arguments);
-                    }, remaining);
-                }
-            };
+        // Add inline plays attribute for iOS
+        if (isIOS() && backgroundVideo) {
+            backgroundVideo.setAttribute('playsinline', 'true');
+            backgroundVideo.setAttribute('webkit-playsinline', 'true');
         }
-        
-        // Check video visibility on scroll (throttled for performance)
-        window.addEventListener('scroll', throttle(toggleVideo, 200));
-        
-        // Initial check
-        document.addEventListener('DOMContentLoaded', toggleVideo);
     </script>
 </body>
 </html>
