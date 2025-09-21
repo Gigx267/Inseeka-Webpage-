@@ -520,60 +520,794 @@
         </div>
     </header>
 
-    <!-- Hero Section with Video Background -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing CSS variables and base styles */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section Styles */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.7));
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            max-width: 650px;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: var(--text);
+            max-width: 550px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.1s forwards;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--gold);
+            padding: 15px 35px;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(212, 185, 130, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.3s forwards;
+        }
+        
+        .hero-scroll-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 40px;
+            background-color: var(--gold);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 600px;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="video-background">
-            <video class="background-video" autoplay muted loop playsinline poster="">
-                <source src="vv4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-overlay"></div>
+        <div class="hero-background">
+            <div class="hero-slideshow">
+                  <div class="slide " style="background-image: url('sbb\ \(6\).jpg');"></div>
+                <div class="slide " style="background-image: url('./m\ \(3\).jpg');"></div>
+              
+                <div class="slide active" style="background-image: url('./sbb\ \(3\).jpg');"></div>
+            </div>
+            <div class="slide-overlay"></div>
         </div>
-
-        <div class="container hero-content">
-            <img src="logo.png" alt="Inseekan Logo">
-            <h1>Bespoke Footwears</h1>
-            <p>Shoes That Reflect The Luxury Of Craftsmanship</p>
-            <a href="#contact" class="btn">Commission Your Pair</a>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle">Bespoke Luxury Footwear</p>
+                <h1 class="hero-title">Crafting Excellence in Every Stitch</h1>
+                <p class="hero-description">Experience the art of bespoke shoemaking with Inseekan Leather. Each pair is meticulously handcrafted in Abuja using premium materials and traditional techniques.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn-primary">Explore Collection</a>
+                    <a href="contact.html" class="btn-secondary">Custom Order</a>
+                </div>
+            </div>
         </div>
+        
+        <div class="hero-scroll-indicator">Scroll Down</div>
     </section>
 
-    <!-- Story Section -->
-    <section class="story">
+    <script>
+        // Slideshow functionality for hero background
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+
+   <!-- Products Section 1 -->
+    <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">Our Heritage</h2>
-            <div class="story-content">
-                <div class="story-text">
-                    <p>Inseekan Footwears was born from a passion for preserving traditional Nigerian craftsmanship while meeting the demands of modern style. Our journey began recognizing a gap in the market for high-quality, locally-made footwear, to create a brand that would showcase the best of Nigerian artistry.</p>
-                  
-                    <p>Every pair we create tells a story - of skilled hands that cut and stitch, of premium materials carefully selected, and of a client's unique personality expressed through design. We honor the time-honored techniques passed down through generations while innovating to meet contemporary tastes.</p>
+            <h2 class="section-title">Premium Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (39).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Oxford Brown</h3>
+                        <div class="price">₦85,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Oxford Brown" data-price="85000" data-image="s (39).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="story-image">
-                    <img src="m (3).jpg" alt="Inseekan Leather Workshop">
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (38).jpg" alt="Designer Boots">
+                    </div>
+                    <div class="product-info">
+                        <h3>Designer Boots</h3>
+                        <div class="price">₦78,000</div>
+                        <button class="add-to-cart-btn" data-name="Designer Boots" data-price="78000" data-image="s (38).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (35).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3>Executive Brogues</h3>
+                        <div class="price">₦72,000</div>
+                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="72000" data-image="s (35).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section 2 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Latest Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (1).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Oxford</h3>
+                        <p>Handcrafted leather oxford shoes with impeccable detailing.</p>
+                        <div class="price">₦45,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Oxford" data-price="45000" data-image="p (1).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (3).jpg" alt="Designer Loafers">
+                    </div>
+                    <div class="product-info">
+                        <h3>Designer Loafers</h3>
+                        <p>Premium leather loafers with contemporary design elements.</p>
+                        <div class="price">₦38,000</div>
+                        <button class="add-to-cart-btn" data-name="Designer Loafers" data-price="38000" data-image="p (3).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (5).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3>Executive Brogues</h3>
+                        <p>Elegant brogue shoes perfect for formal occasions.</p>
+                        <div class="price">₦42,000</div>
+                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="42000" data-image="p (5).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Exclusive Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (13).jpg" alt="Classic Handcrafted">
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Handcrafted</h3>
+                        <p>Handcrafted leather oxford shoes with impeccable detailing.</p>
+                        <div class="price">₦75,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Handcrafted" data-price="75000" data-image="s (13).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (17).jpg" alt="Exclusive Loafers">
+                    </div>
+                    <div class="product-info">
+                        <h3>Exclusive Loafers</h3>
+                        <p>Premium leather loafers with contemporary design elements.</p>
+                        <div class="price">₦38,000</div>
+                        <button class="add-to-cart-btn" data-name="Exclusive Loafers" data-price="38000" data-image="s (17).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (18).jpg" alt="Formal Rares">
+                    </div>
+                    <div class="product-info">
+                        <h3>Formal Rares</h3>
+                        <p>Elegant brogue shoes perfect for formal occasions.</p>
+                        <div class="price">₦42,000</div>
+                        <button class="add-to-cart-btn" data-name="Formal Rares" data-price="42000" data-image="s (18).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our process involves careful selection of premium leathers, meticulous hand-cutting, and traditional stitching techniques that have been passed down through generations.</h2>
-                </div>
+ <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification"><span></span></div>
+    
+    <!-- Product Customization Modal -->
+    <div class="customization-modal" id="customizationModal">
+        <div class="customization-content">
+            <button class="customization-close" id="customizationClose" title="Close">&times;</button>
+            <h2 class="customization-title" id="customizationProductName">Customize Your Shoes</h2>
+            <img src="" alt="Product Image" class="customization-image" id="customizationImage">
+            
+            <div class="customization-option">
+                <label for="shoeSize">Select Size:</label>
+                <select id="shoeSize">
+                    <option value="">Select your size</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                </select>
             </div>
+            
+            <div class="customization-option">
+                <label>Select Color:</label>
+                <div class="color-options">
+                    <div class="color-option selected" style="background-color: #8B4513;" data-color="Brown" title="Brown"></div>
+                    <div class="color-option" style="background-color: #000000;" data-color="Black" title="Black"></div>
+                    <div class="color-option" style="background-color: #964B00;" data-color="Dark Brown" title="Dark Brown"></div>
+                    <div class="color-option" style="background-color: #C19A6B;" data-color="Tan" title="Tan"></div>
+                    <div class="color-option" style="background-color: #800020;" data-color="Burgundy" title="Burgundy"></div>
+                </div>
+                <input type="hidden" id="selectedColor" value="Brown">
+            </div>
+            
+            <div class="customization-option">
+                <label for="customNotes">Additional Notes (Optional):</label>
+                <textarea id="customNotes" placeholder="Any special requests or customization details..."></textarea>
+            </div>
+            
+            <button id="addCustomizedToCart" class="send-whatsapp-btn">Add to Cart</button>
         </div>
-    </section>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal-bg" id="cartModalBg">
+        <div class="cart-modal">
+            <button class="cart-modal-close" id="cartModalClose" title="Close">&times;</button>
+            <h2>Your Order</h2>
+            <div id="cartItemsList"></div>
+            <div id="cartTotal"></div>
+            <form id="orderForm">
+                <input type="text" id="customerName" required placeholder="Your full name">
+                <input type="tel" id="customerPhone" required placeholder="Phone number (e.g. 08012345678)">
+                <input type="email" id="customerEmail" placeholder="Email address (optional)">
+                <textarea id="customerNote" rows="2" placeholder="Additional information or special requests..."></textarea>
+                <button type="submit" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Floating Cart Button -->
+    <button class="cart-action-btn" id="cartActionBtn" title="View Cart" style="display:none;">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCountBadge">0</span>
+    </button>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Experience Nsikan's Craftsmanship</h2>
-            <p>Ready to own a pair of bespoke footwear crafted under the personal supervision of Nsikan himself? Visit our workshop or schedule a consultation to begin your journey to the perfect pair.</p>
-            <a href="contact.html" class="btn">Schedule a Consultation</a>
-        </div>
-    </section>
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // --- Cart functionality ---
+        const cart = [];
+        const cartActionBtn = document.getElementById('cartActionBtn');
+        let currentProduct = null;
+        
+        function updateCartBadge() {
+            document.getElementById('cartCountBadge').textContent = cart.length;
+        }
+        
+        function showCartNotification(msg) {
+            const cartNotification = document.getElementById('cartNotification');
+            cartNotification.querySelector('span').textContent = msg;
+            cartNotification.classList.add('show');
+            setTimeout(() => cartNotification.classList.remove('show'), 1800);
+        }
+        
+        // Color selection functionality
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selectedColor').value = this.getAttribute('data-color');
+            });
+        });
+        
+        // Add to cart buttons - open customization modal
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.onclick = () => {
+                const name = button.getAttribute('data-name');
+                const price = button.getAttribute('data-price');
+                const image = button.getAttribute('data-image');
+                
+                // Store current product info
+                currentProduct = { name, price: Number(price), image };
+                
+                // Populate customization modal
+                document.getElementById('customizationProductName').textContent = `Customize ${name}`;
+                document.getElementById('customizationImage').src = image;
+                document.getElementById('shoeSize').value = '';
+                document.getElementById('customNotes').value = '';
+                
+                // Reset color selection
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                document.querySelector('.color-option').classList.add('selected');
+                document.getElementById('selectedColor').value = 'Brown';
+                
+                // Show customization modal
+                document.getElementById('customizationModal').classList.add('active');
+            };
+        });
+        
+        // Add customized product to cart
+        document.getElementById('addCustomizedToCart').onclick = () => {
+            const size = document.getElementById('shoeSize').value;
+            const color = document.getElementById('selectedColor').value;
+            const notes = document.getElementById('customNotes').value;
+            
+            if (!size) {
+                alert('Please select a shoe size');
+                return;
+            }
+            
+            // Add customized product to cart
+            cart.push({
+                ...currentProduct,
+                size,
+                color,
+                notes
+            });
+            
+            updateCartBadge();
+            showCartNotification(`${currentProduct.name} added to cart!`);
+            cartActionBtn.style.display = "flex";
+            
+            // Close customization modal
+            document.getElementById('customizationModal').classList.remove('active');
+        };
+        
+        // Close customization modal
+        document.getElementById('customizationClose').onclick = () => {
+            document.getElementById('customizationModal').classList.remove('active');
+        };
+        
+        document.getElementById('customizationModal').onclick = e => {
+            if (e.target === document.getElementById('customizationModal'))
+                document.getElementById('customizationModal').classList.remove('active');
+        };
+        
+        function renderCartModal() {
+            const listDiv = document.getElementById('cartItemsList');
+            listDiv.innerHTML = cart.length ? '' : '<p>Your cart is empty.</p>';
+            let total = 0;
+            
+            cart.forEach((item, idx) => {
+                total += item.price;
+                const row = document.createElement('div');
+                row.className = 'cart-item-row';
+                row.innerHTML = `
+                    <div>
+                        <span>${item.name}</span>
+                        <div class="cart-item-details">
+                            Size: ${item.size} | Color: ${item.color}
+                            ${item.notes ? `<br>Notes: ${item.notes}` : ''}
+                        </div>
+                    </div>
+                    <span>₦${item.price.toLocaleString()}</span>
+                    <button style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:1.2rem;" 
+                            title="Remove" onclick="removeCartItem(${idx})">
+                        <i class="fas fa-trash"></i>
+                    </button>`;
+                listDiv.appendChild(row);
+            });
+            
+            document.getElementById('cartTotal').textContent = cart.length ? 
+                `Total: ₦${total.toLocaleString()}` : '';
+        }
+        
+        window.removeCartItem = idx => {
+            cart.splice(idx, 1);
+            updateCartBadge();
+            renderCartModal();
+            cartActionBtn.style.display = cart.length ? "flex" : "none";
+        };
+        
+        cartActionBtn.onclick = () => {
+            renderCartModal();
+            document.getElementById('cartModalBg').classList.add('active');
+        };
+        
+        document.getElementById('cartModalClose').onclick = () =>
+            document.getElementById('cartModalBg').classList.remove('active');
+        
+        document.getElementById('cartModalBg').onclick = e => {
+            if (e.target === document.getElementById('cartModalBg'))
+                document.getElementById('cartModalBg').classList.remove('active');
+        };
+        
+        document.getElementById('orderForm').onsubmit = function(e) {
+            e.preventDefault();
+            if (!cart.length) return alert("Your cart is empty! Please add items.");
+            
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const note = document.getElementById('customerNote').value.trim();
+            
+            if (!name || !phone) {
+                alert("Please provide at least your name and phone number.");
+                return;
+            }
+            
+            let message = `*Inseekan Leather Order*\n\n`;
+            message += `*Customer Information:*\n`;
+            message += `Name: ${name}\n`;
+            message += `Phone: ${phone}\n`;
+            if (email) message += `Email: ${email}\n`;
+            
+            message += `\n*Order Details:*\n`;
+            cart.forEach((item, i) => {
+                message += `\n${i+1}. ${item.name}\n`;
+                message += `   Price: ₦${item.price.toLocaleString()}\n`;
+                message += `   Size: ${item.size}\n`;
+                message += `   Color: ${item.color}\n`;
+                if (item.notes) message += `   Notes: ${item.notes}\n`;
+            });
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            message += `\n*Order Total:* ₦${total.toLocaleString()}\n`;
+            
+            if (note) message += `\n*Additional Information:*\n${note}\n`;
+            message += `\nThank you!`;
+            
+            // Using the WhatsApp number from the provided link
+            const whatsappNumber = "2348160348696";
+            const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(waURL, "_blank");
+            document.getElementById('cartModalBg').classList.remove('active');
+            
+            // Clear cart after order
+            cart.length = 0;
+            updateCartBadge();
+            cartActionBtn.style.display = "none";
+            
+            // Reset form
+            document.getElementById('orderForm').reset();
+        };
+        
+        // Keyboard shortcut for cart (Accessibility)
+        document.addEventListener('keydown', function(e) {
+            // Alt+C to open cart modal
+            if ((e.altKey || e.ctrlKey) && e.key.toLowerCase() === 'c') {
+                if (cart.length) {
+                    renderCartModal();
+                    document.getElementById('cartModalBg').classList.add('active');
+                }
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -709,3 +1443,909 @@
     </script>
 </body>
 </html>
+
+  <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-icon {
+            display: none;
+            font-size: 24px;
+            color: var(--gold);
+            cursor: pointer;
+        }
+        
+        /* Hero Section with Video Background */
+        .hero {
+            height: 110vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            background-color: var(--dark-bg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .product-card {
+            background-color: var(--dark-element);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 450px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .product-info p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .price {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: var(--light-gold);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(198, 164, 103, 0.2);
+        }
+        
+        .step i {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background-color: var(--dark-element);
+            padding: 30px;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        /* Craftsmanship Section */
+        .craftsmanship {
+            padding: 80px 0;
+        }
+        
+        .craft-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .craft-text {
+            flex: 1;
+        }
+        
+        .craft-video {
+            flex: 1;
+        }
+        
+        .craft-video video {
+            width: 100%;
+            height: 150%;
+            display: block;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            background-color: var(--dark-bg);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .info-item i {
+            font-size: 24px;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(198, 164, 103, 0.3);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-icon {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--dark-element);
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 50px 0;
+                transition: left 0.3s;
+            }
+            
+            nav ul.show {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Cart Styles */
+        .cart-notification {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--gold);
+            color: var(--dark-bg);
+            padding: 0.9rem 1.25rem;
+            border-radius: 50px;
+            opacity: 0;
+            transition: all 0.5s;
+            font-size: 1rem;
+            z-index: 9999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+        
+        .cart-notification.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Floating Cart Button */
+        .cart-action-btn {
+            position: fixed;
+            bottom: 85px;
+            right: 40px;
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50%;
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .cart-action-btn:hover {
+            background: var(--light-gold);
+            transform: scale(1.08);
+        }
+        
+        #cartCountBadge {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: var(--dark-bg);
+            color: var(--gold);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+        }
+        
+        /* Cart Modal */
+        .cart-modal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .cart-modal-bg.active {
+            display: flex;
+        }
+        
+        .cart-modal {
+            background: var(--dark-element);
+            border-radius: 8px;
+            box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+            padding: 2rem;
+            max-width: 96vw;
+            width: 500px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInModal 0.22s;
+            border: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        @keyframes fadeInModal {
+            from {
+                transform: scale(0.97);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .cart-modal h2 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.01rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .cart-item-details {
+            font-size: 0.85rem;
+            color: var(--light-gold);
+            margin-top: 5px;
+        }
+        
+        .cart-modal-close {
+            position: absolute;
+            right: 1.2rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: var(--text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .cart-modal-close:hover {
+            color: var(--gold);
+        }
+        
+        .send-whatsapp-btn {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.08rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .send-whatsapp-btn:hover {
+            background: var(--light-gold);
+            transform: scale(1.02);
+        }
+        
+        #orderForm input, #orderForm textarea, #orderForm select {
+            width: 100%;
+            margin: 0.5rem 0;
+            border: 1px solid rgba(198, 164, 103, 0.3);
+            border-radius: 4px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        #orderForm input:focus, #orderForm textarea:focus, #orderForm select:focus {
+            border-color: var(--gold);
+        }
+        
+        #orderForm textarea {
+            resize: vertical;
+            min-height: 80px;
+            max-height: 120px;
+        }
+        
+        #cartTotal {
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.2rem;
+            text-align: right;
+            margin: 1rem 0;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Product Customization Modal */
+        .customization-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .customization-modal.active {
+            display: flex;
+        }
+        
+        .customization-content {
+            background: var(--dark-element);
+            border-radius: 8px;
+            box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+            padding: 2rem;
+            max-width: 96vw;
+            width: 500px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInModal 0.22s;
+            border: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .customization-close {
+            position: absolute;
+            right: 1.2rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: var(--text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .customization-close:hover {
+            color: var(--gold);
+        }
+        
+        .customization-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .customization-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .customization-option {
+            margin-bottom: 1rem;
+        }
+        
+        .customization-option label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .customization-option select, .customization-option input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(198, 164, 103, 0.3);
+            color: var(--text);
+            border-radius: 4px;
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .color-option.selected {
+            border-color: var(--gold);
+        }
+        
+        /* Responsive adjustments for cart */
+        @media (max-width: 600px) {
+            .cart-action-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 1.2rem;
+                right: 18px;
+                bottom: 70px;
+            }
+            
+            #cartCountBadge {
+                width: 17px;
+                height: 17px;
+                font-size: 0.7rem;
+                top: 7px;
+                right: 11px;
+            }
+            
+            .cart-modal, .customization-content {
+                width: 95vw;
+                padding: 1.5rem;
+            }
+        }
+    </style>
