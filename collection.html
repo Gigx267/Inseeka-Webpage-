@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,1465 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 35px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-icon {
+            display: none;
+            font-size: 24px;
+            color: var(--gold);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section with Video Background */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 70px;
+            overflow: hidden;
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content img {
+            height: 80px;
+            width: 80px;
+            border-radius: 40%;
+            margin: 0 auto 20px;
+            display: block;
+            opacity: 0.9;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            font-size: 14px;
+            min-width: 200px;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Story Section */
+        .story {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .story-text {
+            padding: 25px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .story-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .story-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 60px 0;
+            background-color: var(--dark-element);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .about-text {
+            text-align: center;
+        }
+        
+        .about-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('m (1).jpg') center/cover no-repeat;
+        }
+        
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 100%;
+            margin: 0 auto 30px;
+            font-size: 16px;
+            padding: 0 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 40px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(198, 164, 103, 0.3);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-icon {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--dark-element);
+                width: 70%;
+                height: 100vh;
+                padding: 80px 30px 30px;
+                transition: right 0.3s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            nav ul.show {
+                right: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                text-align: left;
+            }
+            
+            nav ul li a {
+                font-size: 18px;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            .hero {
+                height: 90vh;
+                min-height: 500px;
+            }
+            
+            .hero-content img {
+                height: 70px;
+                width: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                min-width: 180px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo img {
+                height: 30px;
+                width: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 14px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+                min-width: 160px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .story-text p {
+                font-size: 15px;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .footer-logo {
+                font-size: 20px;
+            }
+        }
+
+        /* Animation Styles */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(-6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content h1 {
+            opacity: 0;
+            animation: fadeInUp 1.1s cubic-bezier(0.33,1,0.68,1) 0.2s forwards;
+        }
+
+        .hero-content p {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.33,1,0.68,1) 0.6s forwards;
+        }
+
+        .hero-content .btn {
+            opacity: 0;
+            animation: fadeIn 1s ease 1.2s forwards;
+        }
+        
+        /* Prevent horizontal scrolling */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Inseekan Logo">
+                Inseekan
+            </a>
+            
+            <div class="nav-icon" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collection.html">Collection</a></li>
+                    <li><a href="founder.html">Founder</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing CSS variables and base styles */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-element: #1a1a1a;
+            --gold: #f7f5f2;
+            --light-gold: #d4b982;
+            --text: #e0e0e0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section Styles */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.7));
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            max-width: 650px;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: var(--text);
+            max-width: 550px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.1s forwards;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--gold);
+            padding: 15px 35px;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(212, 185, 130, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.3s forwards;
+        }
+        
+        .hero-scroll-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 40px;
+            background-color: var(--gold);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 600px;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+
+    <script>
+        // Slideshow functionality for hero background
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+<!-- Products Section 1 -->
+   
+   <!-- Products Section 1 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Premium Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (39).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3>Udeme Woven Mills </h3>
+                        <div class="price">₦65,000</div>
+                        <button class="add-to-cart-btn" data-name="Udeme Woven Mills" data-price="85000" data-image="s (39).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (38).jpg" alt="Designer Boots">
+                    </div>
+                    <div class="product-info">
+                        <h3>Otuekong Zipper Boots </h3>
+                        <div class="price">₦97,500</div>
+                        <button class="add-to-cart-btn" data-name="Otuekong Zipper Boots" data-price="78000" data-image="s (38).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (35).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3>Konika  Embelished Mules </h3>
+                        <div class="price">₦60,000</div>
+                        <button class="add-to-cart-btn" data-name="Konika  Embelished Mules" data-price="72000" data-image="s (35).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section class="products" id="products">
+        <div class="container">
+          
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="vf (1).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3> Kan  Sandals  </h3>
+                        <div class="price">₦50,000</div>
+                        <button class="add-to-cart-btn" data-name="Kan  Sandals" data-price="55000" data-image="s (39).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="vf (2).jpg" alt="Designer Boots">
+                    </div>
+                    <div class="product-info">
+                        <h3> Chuka Chunky Mules   </h3>
+                        <div class="price">₦70,000</div>
+                        <button class="add-to-cart-btn" data-name=" Chuka Chunky Mules" data-price="78000" data-image="s (38).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="vf (3).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3> Chuka Chunky Mules  </h3>
+                        <div class="price">₦70,000</div>
+                        <button class="add-to-cart-btn" data-name="Chuka Chunky Mules  " data-price="72000" data-image="s (35).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products Section 2 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Latest Collection</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (1).jpg" alt="Classic Oxford">
+                    </div>
+                    <div class="product-info">
+                        <h3>Odogwu Woven Mules  </h3>
+                     
+                        <div class="price">₦65,000</div>
+                        <button class="add-to-cart-btn" data-name="Prince Woven" data-price="45000" data-image="p (1).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (3).jpg" alt="Designer Loafers">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mr Eze Oxfords </h3>
+         
+                        <div class="price">₦70,000</div>
+                        <button class="add-to-cart-btn" data-name="Designer Loafers" data-price="38000" data-image="p (3).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="p (5).jpg" alt="Executive Brogues">
+                    </div>
+                    <div class="product-info">
+                        <h3>Lesi Loafers </h3>
+                       
+                        <div class="price">₦80,000</div>
+                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="42000" data-image="p (5).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="products" id="products">
+        <div class="container">
+          
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (13).jpg" alt="Classic Handcrafted">
+                    </div>
+                    <div class="product-info">
+                        <h3>Osi Sandals</h3>
+                   
+                        <div class="price">₦65,000</div>
+                        <button class="add-to-cart-btn" data-name="Classic Handcrafted" data-price="75000" data-image="s (13).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (17).jpg" alt="Exclusive Loafers">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ope Loafers </h3>
+                 
+                        <div class="price">₦80,000</div>
+                        <button class="add-to-cart-btn" data-name="Exclusive Loafers" data-price="38000" data-image="s (17).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s (18).jpg" alt="Formal Rares">
+                    </div>
+                    <div class="product-info">
+                        <h3>Davidson Chunky Loafers </h3>
+                        
+                        <div class="price">₦80,000</div>
+                        <button class="add-to-cart-btn" data-name="Formal Rares" data-price="42000" data-image="s (18).jpg">
+                            Customize & Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification"><span></span></div>
+    
+    <!-- Product Customization Modal -->
+    <div class="customization-modal" id="customizationModal">
+        <div class="customization-content">
+            <button class="customization-close" id="customizationClose" title="Close">&times;</button>
+            <h2 class="customization-title" id="customizationProductName">Customize Your Shoes</h2>
+            <img src="" alt="Product Image" class="customization-image" id="customizationImage">
+            
+            <div class="customization-option">
+                <label for="shoeSize">Select Size:</label>
+                <select id="shoeSize">
+                    <option value="">Select your size</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                </select>
+            </div>
+            
+            <div class="customization-option">
+                <label>Select Color:</label>
+                <div class="color-options">
+                    <div class="color-option selected" style="background-color: #8B4513;" data-color="Brown" title="Brown"></div>
+                    <div class="color-option" style="background-color: #000000;" data-color="Black" title="Black"></div>
+                    <div class="color-option" style="background-color: #964B00;" data-color="Dark Brown" title="Dark Brown"></div>
+                    <div class="color-option" style="background-color: #C19A6B;" data-color="Tan" title="Tan"></div>
+                    <div class="color-option" style="background-color: #800020;" data-color="Burgundy" title="Burgundy"></div>
+                </div>
+                <input type="hidden" id="selectedColor" value="Brown">
+            </div>
+            
+            <div class="customization-option">
+                <label for="customNotes">Additional Notes (Optional):</label>
+                <textarea id="customNotes" placeholder="Any special requests or customization details..."></textarea>
+            </div>
+            
+            <button id="addCustomizedToCart" class="send-whatsapp-btn">Add to Cart</button>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal-bg" id="cartModalBg">
+        <div class="cart-modal">
+            <button class="cart-modal-close" id="cartModalClose" title="Close">&times;</button>
+            <h2>Your Order</h2>
+            <div id="cartItemsList"></div>
+            <div id="cartTotal"></div>
+            <form id="orderForm">
+                <input type="text" id="customerName" required placeholder="Your full name">
+                <input type="tel" id="customerPhone" required placeholder="Phone number (e.g. 08012345678)">
+                <input type="email" id="customerEmail" placeholder="Email address (optional)">
+                <textarea id="customerNote" rows="2" placeholder="Additional information or special requests..."></textarea>
+                <button type="submit" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Floating Cart Button -->
+    <button class="cart-action-btn" id="cartActionBtn" title="View Cart" style="display:none;">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCountBadge">0</span>
+    </button>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // --- Cart functionality ---
+        const cart = [];
+        const cartActionBtn = document.getElementById('cartActionBtn');
+        let currentProduct = null;
+        
+        function updateCartBadge() {
+            document.getElementById('cartCountBadge').textContent = cart.length;
+        }
+        
+        function showCartNotification(msg) {
+            const cartNotification = document.getElementById('cartNotification');
+            cartNotification.querySelector('span').textContent = msg;
+            cartNotification.classList.add('show');
+            setTimeout(() => cartNotification.classList.remove('show'), 1800);
+        }
+        
+        // Color selection functionality
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selectedColor').value = this.getAttribute('data-color');
+            });
+        });
+        
+        // Add to cart buttons - open customization modal
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.onclick = () => {
+                const name = button.getAttribute('data-name');
+                const price = button.getAttribute('data-price');
+                const image = button.getAttribute('data-image');
+                
+                // Store current product info
+                currentProduct = { name, price: Number(price), image };
+                
+                // Populate customization modal
+                document.getElementById('customizationProductName').textContent = `Customize ${name}`;
+                document.getElementById('customizationImage').src = image;
+                document.getElementById('shoeSize').value = '';
+                document.getElementById('customNotes').value = '';
+                
+                // Reset color selection
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                document.querySelector('.color-option').classList.add('selected');
+                document.getElementById('selectedColor').value = 'Brown';
+                
+                // Show customization modal
+                document.getElementById('customizationModal').classList.add('active');
+            };
+        });
+        
+        // Add customized product to cart
+        document.getElementById('addCustomizedToCart').onclick = () => {
+            const size = document.getElementById('shoeSize').value;
+            const color = document.getElementById('selectedColor').value;
+            const notes = document.getElementById('customNotes').value;
+            
+            if (!size) {
+                alert('Please select a shoe size');
+                return;
+            }
+            
+            // Add customized product to cart
+            cart.push({
+                ...currentProduct,
+                size,
+                color,
+                notes
+            });
+            
+            updateCartBadge();
+            showCartNotification(`${currentProduct.name} added to cart!`);
+            cartActionBtn.style.display = "flex";
+            
+            // Close customization modal
+            document.getElementById('customizationModal').classList.remove('active');
+        };
+        
+        // Close customization modal
+        document.getElementById('customizationClose').onclick = () => {
+            document.getElementById('customizationModal').classList.remove('active');
+        };
+        
+        document.getElementById('customizationModal').onclick = e => {
+            if (e.target === document.getElementById('customizationModal'))
+                document.getElementById('customizationModal').classList.remove('active');
+        };
+        
+        function renderCartModal() {
+            const listDiv = document.getElementById('cartItemsList');
+            listDiv.innerHTML = cart.length ? '' : '<p>Your cart is empty.</p>';
+            let total = 0;
+            
+            cart.forEach((item, idx) => {
+                total += item.price;
+                const row = document.createElement('div');
+                row.className = 'cart-item-row';
+                row.innerHTML = `
+                    <div>
+                        <span>${item.name}</span>
+                        <div class="cart-item-details">
+                            Size: ${item.size} | Color: ${item.color}
+                            ${item.notes ? `<br>Notes: ${item.notes}` : ''}
+                        </div>
+                    </div>
+                    <span>₦${item.price.toLocaleString()}</span>
+                    <button style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:1.2rem;" 
+                            title="Remove" onclick="removeCartItem(${idx})">
+                        <i class="fas fa-trash"></i>
+                    </button>`;
+                listDiv.appendChild(row);
+            });
+            
+            document.getElementById('cartTotal').textContent = cart.length ? 
+                `Total: ₦${total.toLocaleString()}` : '';
+        }
+        
+        window.removeCartItem = idx => {
+            cart.splice(idx, 1);
+            updateCartBadge();
+            renderCartModal();
+            cartActionBtn.style.display = cart.length ? "flex" : "none";
+        };
+        
+        cartActionBtn.onclick = () => {
+            renderCartModal();
+            document.getElementById('cartModalBg').classList.add('active');
+        };
+        
+        document.getElementById('cartModalClose').onclick = () =>
+            document.getElementById('cartModalBg').classList.remove('active');
+        
+        document.getElementById('cartModalBg').onclick = e => {
+            if (e.target === document.getElementById('cartModalBg'))
+                document.getElementById('cartModalBg').classList.remove('active');
+        };
+        
+        document.getElementById('orderForm').onsubmit = function(e) {
+            e.preventDefault();
+            if (!cart.length) return alert("Your cart is empty! Please add items.");
+            
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const note = document.getElementById('customerNote').value.trim();
+            
+            if (!name || !phone) {
+                alert("Please provide at least your name and phone number.");
+                return;
+            }
+            
+            let message = `*Inseekan Leather Order*\n\n`;
+            message += `*Customer Information:*\n`;
+            message += `Name: ${name}\n`;
+            message += `Phone: ${phone}\n`;
+            if (email) message += `Email: ${email}\n`;
+            
+            message += `\n*Order Details:*\n`;
+            cart.forEach((item, i) => {
+                message += `\n${i+1}. ${item.name}\n`;
+                message += `   Price: ₦${item.price.toLocaleString()}\n`;
+                message += `   Size: ${item.size}\n`;
+                message += `   Color: ${item.color}\n`;
+                if (item.notes) message += `   Notes: ${item.notes}\n`;
+            });
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            message += `\n*Order Total:* ₦${total.toLocaleString()}\n`;
+            
+            if (note) message += `\n*Additional Information:*\n${note}\n`;
+            message += `\nThank you!`;
+            
+            // Using the WhatsApp number from the provided link
+            const whatsappNumber = "2348132275689";
+            const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(waURL, "_blank");
+            document.getElementById('cartModalBg').classList.remove('active');
+            
+            // Clear cart after order
+            cart.length = 0;
+            updateCartBadge();
+            cartActionBtn.style.display = "none";
+            
+            // Reset form
+            document.getElementById('orderForm').reset();
+        };
+        
+        // Keyboard shortcut for cart (Accessibility)
+        document.addEventListener('keydown', function(e) {
+            // Alt+C to open cart modal
+            if ((e.altKey || e.ctrlKey) && e.key.toLowerCase() === 'c') {
+                if (cart.length) {
+                    renderCartModal();
+                    document.getElementById('cartModalBg').classList.add('active');
+                }
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Inseekan Africa</div>
+                    <p>Crafting exceptional bespoke footwear in Abuja with passion and precision.</p>
+                </div>
+                
+                <div>
+                    <h3>Every pair we create tells a story</h3>
+                </div>
+                
+                <div>
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; Inseekan. All rights reserved. | Handcrafted in Abuja, Nigeria</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const body = document.body;
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            body.classList.toggle('no-scroll');
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                body.classList.remove('no-scroll');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if(navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        body.classList.remove('no-scroll');
+                        const icon = navToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Video handling - simplified to ensure it plays on mobile
+        const backgroundVideo = document.querySelector('.background-video');
+        
+        // Ensure video plays on mobile
+        function ensureVideoPlays() {
+            if (backgroundVideo) {
+                backgroundVideo.play().catch(error => {
+                    console.log('Video play failed, trying again with user gesture:', error);
+                    // If autoplay is blocked, wait for user interaction
+                    document.body.addEventListener('click', function tryPlayAgain() {
+                        backgroundVideo.play().then(() => {
+                            document.body.removeEventListener('click', tryPlayAgain);
+                        }).catch(e => {
+                            console.log('Still cannot play video:', e);
+                        });
+                    }, { once: true });
+                });
+            }
+        }
+        
+        // Try to play video when page loads
+        document.addEventListener('DOMContentLoaded', ensureVideoPlays);
+        
+        // Also try when the page is fully loaded
+        window.addEventListener('load', ensureVideoPlays);
+        
+        // iOS specific fix - videos on iOS need to be played inline
+        function isIOS() {
+            return [
+                'iPad Simulator',
+                'iPhone Simulator',
+                'iPod Simulator',
+                'iPad',
+                'iPhone',
+                'iPod'
+            ].includes(navigator.platform) || 
+            (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+        }
+        
+        // Add inline plays attribute for iOS
+        if (isIOS() && backgroundVideo) {
+            backgroundVideo.setAttribute('playsinline', 'true');
+            backgroundVideo.setAttribute('webkit-playsinline', 'true');
+        }
+    </script>
+</body>
+</html>
+
+  <style>
         :root {
             --dark-bg: #0a0a0a;
             --dark-element: #1a1a1a;
@@ -913,544 +2373,4 @@
             }
         }
     </style>
-</head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container header-content">
-            <a href="logo.png" class="logo">
-                <i class=""></i>
-                Inseekan - More Than Shoes
-            </a>
-            
-            <div class="nav-icon" id="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="collection.html">Collection</a></li>
-                    <li><a href="founder.html">Founder</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Products Section 1 -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Premium Collection</h2>
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s (39).jpg" alt="Classic Oxford">
-                    </div>
-                    <div class="product-info">
-                        <h3>Classic Oxford Brown</h3>
-                        <div class="price">₦85,000</div>
-                        <button class="add-to-cart-btn" data-name="Classic Oxford Brown" data-price="85000" data-image="s (39).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s (38).jpg" alt="Designer Boots">
-                    </div>
-                    <div class="product-info">
-                        <h3>Designer Boots</h3>
-                        <div class="price">₦78,000</div>
-                        <button class="add-to-cart-btn" data-name="Designer Boots" data-price="78000" data-image="s (38).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s (35).jpg" alt="Executive Brogues">
-                    </div>
-                    <div class="product-info">
-                        <h3>Executive Brogues</h3>
-                        <div class="price">₦72,000</div>
-                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="72000" data-image="s (35).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Products Section 2 -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Latest Collection</h2>
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="p (1).jpg" alt="Classic Oxford">
-                    </div>
-                    <div class="product-info">
-                        <h3>Classic Oxford</h3>
-                        <p>Handcrafted leather oxford shoes with impeccable detailing.</p>
-                        <div class="price">₦45,000</div>
-                        <button class="add-to-cart-btn" data-name="Classic Oxford" data-price="45000" data-image="p (1).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="p (3).jpg" alt="Designer Loafers">
-                    </div>
-                    <div class="product-info">
-                        <h3>Designer Loafers</h3>
-                        <p>Premium leather loafers with contemporary design elements.</p>
-                        <div class="price">₦38,000</div>
-                        <button class="add-to-cart-btn" data-name="Designer Loafers" data-price="38000" data-image="p (3).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="p (5).jpg" alt="Executive Brogues">
-                    </div>
-                    <div class="product-info">
-                        <h3>Executive Brogues</h3>
-                        <p>Elegant brogue shoes perfect for formal occasions.</p>
-                        <div class="price">₦42,000</div>
-                        <button class="add-to-cart-btn" data-name="Executive Brogues" data-price="42000" data-image="p (5).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Exclusive Collection</h2>
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s (13).jpg" alt="Classic Handcrafted">
-                    </div>
-                    <div class="product-info">
-                        <h3>Classic Handcrafted</h3>
-                        <p>Handcrafted leather oxford shoes with impeccable detailing.</p>
-                        <div class="price">₦75,000</div>
-                        <button class="add-to-cart-btn" data-name="Classic Handcrafted" data-price="75000" data-image="s (13).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s (17).jpg" alt="Exclusive Loafers">
-                    </div>
-                    <div class="product-info">
-                        <h3>Exclusive Loafers</h3>
-                        <p>Premium leather loafers with contemporary design elements.</p>
-                        <div class="price">₦38,000</div>
-                        <button class="add-to-cart-btn" data-name="Exclusive Loafers" data-price="38000" data-image="s (17).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s (18).jpg" alt="Formal Rares">
-                    </div>
-                    <div class="product-info">
-                        <h3>Formal Rares</h3>
-                        <p>Elegant brogue shoes perfect for formal occasions.</p>
-                        <div class="price">₦42,000</div>
-                        <button class="add-to-cart-btn" data-name="Formal Rares" data-price="42000" data-image="s (18).jpg">
-                            Customize & Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our process involves careful selection of premium leathers, meticulous hand-cutting, and traditional stitching techniques that have been passed down through generations.</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="cta-section">
-        <div class="container">
-            <h2>Experience Nsikan's Craftsmanship</h2>
-            <p>Ready to own a pair of bespoke footwear crafted under the personal supervision of Nsikan himself? Visit our workshop or schedule a consultation to begin your journey to the perfect pair.</p>
-            <a href="contact.html" class="btn">Schedule a Consultation</a>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">Inseekan Africa</div>
-                    <p>Crafting exceptional bespoke footwear in Abuja with passion and precision.</p>
-                </div>
-                
-                <div>
-                    <h3>Every pair we create tells a story</h3>
-                </div>
-                
-                <div>
-                    <h3>Connect With Us</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/inseekan/"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; Inseekan. All rights reserved. | Handcrafted in Abuja, Nigeria</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Cart Notification -->
-    <div class="cart-notification" id="cartNotification"><span></span></div>
-    
-    <!-- Product Customization Modal -->
-    <div class="customization-modal" id="customizationModal">
-        <div class="customization-content">
-            <button class="customization-close" id="customizationClose" title="Close">&times;</button>
-            <h2 class="customization-title" id="customizationProductName">Customize Your Shoes</h2>
-            <img src="" alt="Product Image" class="customization-image" id="customizationImage">
-            
-            <div class="customization-option">
-                <label for="shoeSize">Select Size:</label>
-                <select id="shoeSize">
-                    <option value="">Select your size</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                    <option value="44">44</option>
-                    <option value="45">45</option>
-                </select>
-            </div>
-            
-            <div class="customization-option">
-                <label>Select Color:</label>
-                <div class="color-options">
-                    <div class="color-option selected" style="background-color: #8B4513;" data-color="Brown" title="Brown"></div>
-                    <div class="color-option" style="background-color: #000000;" data-color="Black" title="Black"></div>
-                    <div class="color-option" style="background-color: #964B00;" data-color="Dark Brown" title="Dark Brown"></div>
-                    <div class="color-option" style="background-color: #C19A6B;" data-color="Tan" title="Tan"></div>
-                    <div class="color-option" style="background-color: #800020;" data-color="Burgundy" title="Burgundy"></div>
-                </div>
-                <input type="hidden" id="selectedColor" value="Brown">
-            </div>
-            
-            <div class="customization-option">
-                <label for="customNotes">Additional Notes (Optional):</label>
-                <textarea id="customNotes" placeholder="Any special requests or customization details..."></textarea>
-            </div>
-            
-            <button id="addCustomizedToCart" class="send-whatsapp-btn">Add to Cart</button>
-        </div>
-    </div>
-    
-    <!-- Cart Modal -->
-    <div class="cart-modal-bg" id="cartModalBg">
-        <div class="cart-modal">
-            <button class="cart-modal-close" id="cartModalClose" title="Close">&times;</button>
-            <h2>Your Order</h2>
-            <div id="cartItemsList"></div>
-            <div id="cartTotal"></div>
-            <form id="orderForm">
-                <input type="text" id="customerName" required placeholder="Your full name">
-                <input type="tel" id="customerPhone" required placeholder="Phone number (e.g. 08012345678)">
-                <input type="email" id="customerEmail" placeholder="Email address (optional)">
-                <textarea id="customerNote" rows="2" placeholder="Additional information or special requests..."></textarea>
-                <button type="submit" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Floating Cart Button -->
-    <button class="cart-action-btn" id="cartActionBtn" title="View Cart" style="display:none;">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cartCountBadge">0</span>
-    </button>
-
-    <script>
-        // Mobile Navigation Toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            
-            // Change icon based on menu state
-            const icon = navToggle.querySelector('i');
-            if (navMenu.classList.contains('show')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // --- Cart functionality ---
-        const cart = [];
-        const cartActionBtn = document.getElementById('cartActionBtn');
-        let currentProduct = null;
-        
-        function updateCartBadge() {
-            document.getElementById('cartCountBadge').textContent = cart.length;
-        }
-        
-        function showCartNotification(msg) {
-            const cartNotification = document.getElementById('cartNotification');
-            cartNotification.querySelector('span').textContent = msg;
-            cartNotification.classList.add('show');
-            setTimeout(() => cartNotification.classList.remove('show'), 1800);
-        }
-        
-        // Color selection functionality
-        document.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-                document.getElementById('selectedColor').value = this.getAttribute('data-color');
-            });
-        });
-        
-        // Add to cart buttons - open customization modal
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.onclick = () => {
-                const name = button.getAttribute('data-name');
-                const price = button.getAttribute('data-price');
-                const image = button.getAttribute('data-image');
-                
-                // Store current product info
-                currentProduct = { name, price: Number(price), image };
-                
-                // Populate customization modal
-                document.getElementById('customizationProductName').textContent = `Customize ${name}`;
-                document.getElementById('customizationImage').src = image;
-                document.getElementById('shoeSize').value = '';
-                document.getElementById('customNotes').value = '';
-                
-                // Reset color selection
-                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-                document.querySelector('.color-option').classList.add('selected');
-                document.getElementById('selectedColor').value = 'Brown';
-                
-                // Show customization modal
-                document.getElementById('customizationModal').classList.add('active');
-            };
-        });
-        
-        // Add customized product to cart
-        document.getElementById('addCustomizedToCart').onclick = () => {
-            const size = document.getElementById('shoeSize').value;
-            const color = document.getElementById('selectedColor').value;
-            const notes = document.getElementById('customNotes').value;
-            
-            if (!size) {
-                alert('Please select a shoe size');
-                return;
-            }
-            
-            // Add customized product to cart
-            cart.push({
-                ...currentProduct,
-                size,
-                color,
-                notes
-            });
-            
-            updateCartBadge();
-            showCartNotification(`${currentProduct.name} added to cart!`);
-            cartActionBtn.style.display = "flex";
-            
-            // Close customization modal
-            document.getElementById('customizationModal').classList.remove('active');
-        };
-        
-        // Close customization modal
-        document.getElementById('customizationClose').onclick = () => {
-            document.getElementById('customizationModal').classList.remove('active');
-        };
-        
-        document.getElementById('customizationModal').onclick = e => {
-            if (e.target === document.getElementById('customizationModal'))
-                document.getElementById('customizationModal').classList.remove('active');
-        };
-        
-        function renderCartModal() {
-            const listDiv = document.getElementById('cartItemsList');
-            listDiv.innerHTML = cart.length ? '' : '<p>Your cart is empty.</p>';
-            let total = 0;
-            
-            cart.forEach((item, idx) => {
-                total += item.price;
-                const row = document.createElement('div');
-                row.className = 'cart-item-row';
-                row.innerHTML = `
-                    <div>
-                        <span>${item.name}</span>
-                        <div class="cart-item-details">
-                            Size: ${item.size} | Color: ${item.color}
-                            ${item.notes ? `<br>Notes: ${item.notes}` : ''}
-                        </div>
-                    </div>
-                    <span>₦${item.price.toLocaleString()}</span>
-                    <button style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:1.2rem;" 
-                            title="Remove" onclick="removeCartItem(${idx})">
-                        <i class="fas fa-trash"></i>
-                    </button>`;
-                listDiv.appendChild(row);
-            });
-            
-            document.getElementById('cartTotal').textContent = cart.length ? 
-                `Total: ₦${total.toLocaleString()}` : '';
-        }
-        
-        window.removeCartItem = idx => {
-            cart.splice(idx, 1);
-            updateCartBadge();
-            renderCartModal();
-            cartActionBtn.style.display = cart.length ? "flex" : "none";
-        };
-        
-        cartActionBtn.onclick = () => {
-            renderCartModal();
-            document.getElementById('cartModalBg').classList.add('active');
-        };
-        
-        document.getElementById('cartModalClose').onclick = () =>
-            document.getElementById('cartModalBg').classList.remove('active');
-        
-        document.getElementById('cartModalBg').onclick = e => {
-            if (e.target === document.getElementById('cartModalBg'))
-                document.getElementById('cartModalBg').classList.remove('active');
-        };
-        
-        document.getElementById('orderForm').onsubmit = function(e) {
-            e.preventDefault();
-            if (!cart.length) return alert("Your cart is empty! Please add items.");
-            
-            const name = document.getElementById('customerName').value.trim();
-            const phone = document.getElementById('customerPhone').value.trim();
-            const email = document.getElementById('customerEmail').value.trim();
-            const note = document.getElementById('customerNote').value.trim();
-            
-            if (!name || !phone) {
-                alert("Please provide at least your name and phone number.");
-                return;
-            }
-            
-            let message = `*Inseekan Leather Order*\n\n`;
-            message += `*Customer Information:*\n`;
-            message += `Name: ${name}\n`;
-            message += `Phone: ${phone}\n`;
-            if (email) message += `Email: ${email}\n`;
-            
-            message += `\n*Order Details:*\n`;
-            cart.forEach((item, i) => {
-                message += `\n${i+1}. ${item.name}\n`;
-                message += `   Price: ₦${item.price.toLocaleString()}\n`;
-                message += `   Size: ${item.size}\n`;
-                message += `   Color: ${item.color}\n`;
-                if (item.notes) message += `   Notes: ${item.notes}\n`;
-            });
-            
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            message += `\n*Order Total:* ₦${total.toLocaleString()}\n`;
-            
-            if (note) message += `\n*Additional Information:*\n${note}\n`;
-            message += `\nThank you!`;
-            
-            // Using the WhatsApp number from the provided link
-            const whatsappNumber = "2348160348696";
-            const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            
-            window.open(waURL, "_blank");
-            document.getElementById('cartModalBg').classList.remove('active');
-            
-            // Clear cart after order
-            cart.length = 0;
-            updateCartBadge();
-            cartActionBtn.style.display = "none";
-            
-            // Reset form
-            document.getElementById('orderForm').reset();
-        };
-        
-        // Keyboard shortcut for cart (Accessibility)
-        document.addEventListener('keydown', function(e) {
-            // Alt+C to open cart modal
-            if ((e.altKey || e.ctrlKey) && e.key.toLowerCase() === 'c') {
-                if (cart.length) {
-                    renderCartModal();
-                    document.getElementById('cartModalBg').classList.add('active');
-                }
-            }
-        });
-    </script>
-</body>
-</html>
