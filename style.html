@@ -6,11 +6,12 @@
   <title>Styled by Inseekan | Premium Groom Styling</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* ================ HORIZONTAL SCROLLING SETUP ================ */
+    /* ================ OPTIMIZED CORE SETUP ================ */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     :root {
@@ -18,42 +19,29 @@
       --secondary-color: #cccccc;
       --accent-color: #8a6d3b;
       --dark-bg: #000000;
-      --light-bg: rgba(255, 255, 255, 0.05);
-      --gradient-dark: rgba(0, 0, 0, 0.7);
-      --gradient-light: rgba(0, 0, 0, 0.3);
-      --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-fast: all 0.3s ease;
+      --transition-main: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
       --border-radius: 15px;
-      --spacing-xl: 60px;
-      --spacing-lg: 40px;
-      --spacing-md: 25px;
-      --spacing-sm: 15px;
-      --spacing-xs: 10px;
     }
 
     html, body {
-      overflow-x: hidden;
-      overflow-y: hidden;
       height: 100%;
+      width: 100%;
+      overflow: hidden; /* Prevent default vertical scroll */
       font-family: "Times New Roman", Times, serif;
-      color: var(--primary-color);
       background: var(--dark-bg);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      touch-action: pan-y pan-x;
+      color: var(--primary-color);
     }
 
-    /* Horizontal scroll container - MOBILE OPTIMIZED */
+    /* ================ HARDWARE ACCELERATED WRAPPER ================ */
     .horizontal-scroll-wrapper {
       display: flex;
-      width: 600vw; /* 6 sections wide */
+      width: 600vw; /* 6 Pages */
       height: 100vh;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
+      transform: translate3d(0, 0, 0); /* Force GPU */
+      transition: var(--transition-main);
     }
 
-    /* Each section as a horizontal page */
     .horizontal-page {
       width: 100vw;
       height: 100vh;
@@ -61,1313 +49,328 @@
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-      padding: 60px 20px 20px; /* Added top padding for header */
+      padding: 80px 20px 100px; /* Space for Header/Footer */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* ================ MOBILE-FRIENDLY TYPOGRAPHY ================ */
-    h1, h2, h3, h4, .logo {
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      line-height: 1.2;
+    /* Scrollbar Styling for internal page content */
+    .horizontal-page::-webkit-scrollbar {
+      width: 4px;
+    }
+    .horizontal-page::-webkit-scrollbar-thumb {
+      background: var(--accent-color);
     }
 
-    h1 {
-      font-size: clamp(28px, 8vw, 48px);
-    }
+    /* ================ TYPOGRAPHY & UI ================ */
+    h1 { font-size: clamp(28px, 8vw, 48px); text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 20px; }
+    h2 { font-size: clamp(24px, 6vw, 36px); text-transform: uppercase; margin-bottom: 15px; }
+    p { color: var(--secondary-color); line-height: 1.6; margin-bottom: 15px; max-width: 600px; }
 
-    h2 {
-      font-size: clamp(24px, 6vw, 36px);
-    }
-
-    h3 {
-      font-size: clamp(18px, 5vw, 24px);
-    }
-
-    p {
-      color: var(--secondary-color);
-      letter-spacing: 0.3px;
-      font-size: clamp(14px, 4vw, 16px);
-      line-height: 1.6;
-    }
-
-    /* ================ MOBILE-FRIENDLY BUTTONS ================ */
     .btn {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
       padding: 14px 28px;
       border: 1px solid var(--primary-color);
       color: var(--primary-color);
       text-decoration: none;
-      text-transform: uppercase;
       font-size: 13px;
-      letter-spacing: 1px;
-      transition: var(--transition-fast);
-      position: relative;
-      overflow: hidden;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
       background: transparent;
       cursor: pointer;
-      min-height: 44px; /* Minimum touch target size */
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: var(--primary-color);
-      transform: translate(-50%, -50%);
-      transition: width 0.4s, height 0.4s;
-    }
-
-    .btn:hover::before {
-      width: 200px;
-      height: 200px;
+      margin-top: 10px;
     }
 
     .btn:hover {
+      background: var(--primary-color);
       color: var(--dark-bg);
-      border-color: var(--primary-color);
     }
 
-    .btn span {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ================ MOBILE-FRIENDLY NAVBAR ================ */
+    /* ================ NAV & PROGRESS ================ */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px 20px;
+      top: 0; left: 0; width: 100%;
+      height: 70px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
-      transition: var(--transition-smooth);
+      padding: 0 30px;
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      height: 60px;
-    }
-
-    .logo {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: var(--primary-color);
-      text-decoration: none;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    /* Mobile menu button */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--primary-color);
-      font-size: 20px;
-      cursor: pointer;
-      padding: 5px;
-      z-index: 1001;
-    }
-
-    /* ================ MOBILE NAVIGATION MENU ================ */
-    .mobile-nav-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 999;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-nav-overlay.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       z-index: 1000;
-      transform: translateY(-20px);
-      opacity: 0;
-      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .mobile-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    .logo { font-size: 20px; font-weight: bold; letter-spacing: 3px; cursor: pointer; color: white; text-decoration: none; }
 
-    .mobile-nav-item {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-size: 18px;
-      padding: 15px;
-      margin: 10px 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: var(--transition-fast);
-      width: 200px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .mobile-nav-item.active {
-      color: var(--accent-color);
-      border-bottom-color: var(--accent-color);
-    }
-
-    /* ================ HERO SECTION - MOBILE OPTIMIZED ================ */
-    #hero-page {
-      background: linear-gradient(var(--gradient-dark), var(--gradient-light)),
-                  url('THE INSEEKAN.png') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero-content {
-      max-width: 100%;
-      padding: var(--spacing-md);
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero h1 {
-      margin-bottom: var(--spacing-sm);
-      line-height: 1.1;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-subtitle {
-      font-size: clamp(16px, 4vw, 20px);
-      margin-bottom: var(--spacing-md);
-      color: var(--secondary-color);
-      padding: 0 10px;
-    }
-
-    /* ================ OUR STORY SECTION - MOBILE OPTIMIZED ================ */
-    #story-page {
-      background: var(--dark-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .story-container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-lg);
-      align-items: center;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .story-image {
-      width: 100%;
-      max-width: 400px;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .story-image img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-
-    .story-text {
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .story-text h2 {
-      margin-bottom: var(--spacing-sm);
-      padding-bottom: 10px;
-    }
-
-    .story-text h2::after {
-      width: 60px;
-    }
-
-    .story-text p {
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .story-handle {
-      font-size: 14px;
-      letter-spacing: 2px;
-      color: var(--accent-color);
-      font-style: italic;
-      margin-top: var(--spacing-md);
-    }
-
-    /* ================ GROOMS SECTION - MOBILE OPTIMIZED ================ */
-    #grooms-page {
-      background: var(--dark-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .grooms-container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-lg);
-      align-items: center;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .grooms-text {
-      order: 1;
-      text-align: center;
-    }
-
-    .grooms-text .hashtag {
-      font-size: clamp(32px, 8vw, 48px);
-      display: block;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .grooms-text .subtext {
-      font-size: clamp(18px, 5vw, 24px);
-      line-height: 1.4;
-      padding: 0 10px;
-    }
-
-    .grooms-image {
-      order: 2;
-      width: 100%;
-      max-width: 500px;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .grooms-image img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-    }
-
-    /* ================ SERVICES SECTION - MOBILE OPTIMIZED ================ */
-    #services-page {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(var(--gradient-dark), var(--gradient-light)),
-                  url('services.png') center/cover no-repeat;
-      text-align: center;
-    }
-
-    .services-content {
-      max-width: 100%;
-      padding: var(--spacing-md);
-    }
-
-    .services-content h1 {
-      margin-bottom: 15px;
-    }
-
-    .subheading {
-      font-size: clamp(18px, 5vw, 22px);
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-    }
-
-    .services-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin: 15px 0;
-    }
-
-    .service-item {
-      font-size: clamp(14px, 4vw, 16px);
-      padding: 5px 0;
-    }
-
-    .service-item::after {
-      display: none;
-    }
-
-    /* Cards within services - MOBILE OPTIMIZED */
-    .services-cards-section {
-      margin-top: var(--spacing-lg);
-    }
-
-    .cards-container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      max-width: 100%;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      transition: var(--transition-fast);
-    }
-
-    .card-number {
-      font-size: 14px;
-      color: var(--accent-color);
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    .card-title {
-      font-size: clamp(16px, 4vw, 18px);
-      margin-bottom: 10px;
-    }
-
-    .card-text {
-      font-size: clamp(13px, 4vw, 15px);
-    }
-
-    /* ================ PACKAGES SECTION - MOBILE OPTIMIZED ================ */
-    #packages-page {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(var(--gradient-dark), var(--gradient-light)),
-                  url('packages.png') center/cover no-repeat;
-      text-align: center;
-    }
-
-    .packages-hero-content {
-      max-width: 100%;
-      width: 100%;
-      padding: var(--spacing-md);
-    }
-
-    .packages-hero-content h1 {
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .packages-hero-content > p {
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .packages-inner-container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      max-width: 100%;
-    }
-
-    .package-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      transition: var(--transition-fast);
-    }
-
-    .package-title {
-      font-size: clamp(18px, 5vw, 20px);
-      margin-bottom: 5px;
-    }
-
-    .package-subtitle {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--secondary-color);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-    }
-
-    .package-price {
-      font-size: clamp(24px, 6vw, 28px);
-      font-weight: 800;
-      color: var(--accent-color);
-      margin-bottom: 15px;
-    }
-
-    .package-description {
-      font-size: clamp(14px, 4vw, 15px);
-      margin-bottom: 20px;
-      min-height: auto;
-    }
-
-    /* ================ BOOKING SECTION - MOBILE OPTIMIZED ================ */
-    #booking-page {
-      background: var(--dark-bg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-    }
-
-    .booking-heading h1 {
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .booking-container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      max-width: 100%;
-      width: 100%;
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .policy-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      transition: var(--transition-fast);
-    }
-
-    .policy-icon {
-      font-size: 24px;
-      color: var(--accent-color);
-      margin-bottom: 10px;
-    }
-
-    .policy-title {
-      font-size: clamp(16px, 4vw, 18px);
-      margin-bottom: 10px;
-    }
-
-    .contact-container {
-      max-width: 100%;
-      width: 100%;
-      padding: var(--spacing-md);
-    }
-
-    .contact-header h2 {
-      margin-bottom: 10px;
-    }
-
-    .contact-header p {
-      margin-bottom: 20px;
-    }
-
-    .contact-info {
-      font-size: clamp(14px, 4vw, 16px);
-    }
-
-    .contact-info a {
-      color: var(--accent-color);
-      text-decoration: none;
-      word-break: break-all;
-    }
-
-    /* ================ HORIZONTAL NAVIGATION DOTS - MOBILE OPTIMIZED ================ */
-    .horizontal-nav-dots {
-      position: fixed;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 998;
-    }
-
-    .nav-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      transition: var(--transition-fast);
-      border: 2px solid transparent;
-    }
-
-    .nav-dot.active {
-      background: var(--accent-color);
-      transform: scale(1.2);
-    }
-
-    .nav-dot:hover {
-      background: var(--primary-color);
-    }
-
-    /* ================ HORIZONTAL SCROLL PROGRESS BAR ================ */
     .scroll-progress {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
+      top: 0; left: 0; width: 100%; height: 3px;
       background: rgba(255, 255, 255, 0.1);
       z-index: 1001;
     }
 
     .scroll-progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
-      width: 0%;
-      transition: width 0.3s ease;
+      width: 16.66%; /* Initial */
+      background: var(--accent-color);
+      transition: width 0.5s ease;
     }
 
-    /* ================ SCROLL HINTS - MOBILE OPTIMIZED ================ */
-    .scroll-hint {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+    .horizontal-nav-dots {
+      position: fixed;
+      right: 20px; top: 50%;
+      transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 15px;
+      z-index: 900;
+    }
+
+    .nav-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-dot.active { background: var(--accent-color); transform: scale(1.3); }
+
+    /* ================ SECTIONS ================ */
+    #hero-page {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('THE INSEEKAN.png') center/cover no-repeat;
+      justify-content: center;
+    }
+
+    .content-container {
+      width: 100%;
+      max-width: 1100px;
       display: flex;
       flex-direction: column;
+      gap: 30px;
       align-items: center;
-      color: var(--secondary-color);
-      font-size: 11px;
-      letter-spacing: 1px;
-      animation: float 3s ease-in-out infinite;
     }
 
-    .scroll-hint i {
-      margin-top: 5px;
-      font-size: 18px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-5px); }
-    }
-
-    /* ================ FOOTER - MOBILE OPTIMIZED ================ */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
+    .image-box {
       width: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 15px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 997;
-      height: 70px;
+      max-width: 500px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      aspect-ratio: 4/5;
     }
 
-    .social-links {
-      margin-bottom: 8px;
+    .image-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Grid for desktop cards */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
     }
 
-    .social-links a {
-      color: var(--primary-color);
-      font-size: 16px;
-      margin: 0 10px;
-      transition: var(--transition-fast);
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--border-radius);
+      transition: 0.3s;
     }
 
-    .social-links a:hover {
-      color: var(--accent-color);
+    .card:hover { border-color: var(--accent-color); background: rgba(255,255,255,0.08); }
+
+    .price { font-size: 28px; color: var(--accent-color); font-weight: bold; margin: 10px 0; }
+
+    /* ================ MOBILE OVERLAY ================ */
+    .mobile-menu-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+    .mobile-nav {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 25px; z-index: 2000;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+    }
+    .mobile-nav.active { transform: translateY(0); }
+    .mobile-nav a { font-size: 20px; color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
+
+    footer {
+      position: fixed; bottom: 0; left: 0; width: 100%; height: 70px;
+      background: rgba(0,0,0,0.9);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      z-index: 900;
     }
 
-    .copyright {
-      font-size: 11px;
-      color: var(--secondary-color);
-    }
-
-    /* ================ ANIMATIONS ================ */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ================ RESPONSIVE BREAKPOINTS ================ */
     @media (min-width: 768px) {
-      :root {
-        --spacing-xl: 80px;
-        --spacing-lg: 50px;
-        --spacing-md: 30px;
-        --spacing-sm: 20px;
-      }
-
-      .horizontal-page {
-        padding: 70px 40px 40px;
-      }
-
-      header {
-        padding: 15px 40px;
-      }
-
-      .logo {
-        font-size: 22px;
-      }
-
-      .mobile-menu-btn {
-        display: none;
-      }
-
-      .story-container {
-        flex-direction: row;
-        gap: var(--spacing-xl);
-      }
-
-      .story-image {
-        max-width: 500px;
-      }
-
-      .story-image img {
-        height: 400px;
-      }
-
-      .grooms-container {
-        flex-direction: row;
-        gap: var(--spacing-xl);
-      }
-
-      .grooms-text {
-        order: 0;
-        text-align: left;
-      }
-
-      .grooms-image {
-        max-width: 600px;
-      }
-
-      .grooms-image img {
-        height: 450px;
-      }
-
-      .cards-container {
-        flex-direction: row;
-        gap: var(--spacing-md);
-      }
-
-      .card {
-        flex: 1;
-      }
-
-      .packages-inner-container {
-        flex-direction: row;
-        gap: var(--spacing-md);
-      }
-
-      .booking-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
-      }
-
-      footer {
-        height: 80px;
-      }
-
-      .copyright {
-        font-size: 12px;
-      }
-    }
-
-    @media (min-width: 992px) {
-      :root {
-        --spacing-xl: 120px;
-        --spacing-lg: 80px;
-        --spacing-md: 50px;
-        --spacing-sm: 30px;
-      }
-
-      .horizontal-page {
-        padding: 80px 60px 60px;
-      }
-
-      header {
-        padding: 20px 60px;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .story-container {
-        max-width: 1400px;
-      }
-
-      .story-image img {
-        height: 500px;
-      }
-
-      .grooms-image img {
-        height: 600px;
-      }
-
-      .booking-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /* ================ TOUCH DEVICE OPTIMIZATIONS ================ */
-    @media (hover: none) and (pointer: coarse) {
-      .btn::before {
-        display: none;
-      }
-      
-      .btn:active {
-        background: var(--primary-color);
-        color: var(--dark-bg);
-      }
-      
-      .card:active {
-        transform: translateY(-5px);
-      }
-      
-      .package-card:active {
-        transform: translateY(-5px);
-      }
-      
-      .policy-card:active {
-        transform: translateY(-3px);
-      }
-      
-      /* Improve touch scrolling */
-      .horizontal-scroll-wrapper {
-        -webkit-overflow-scrolling: touch;
-      }
-    }
-
-    /* Hide scrollbar but keep functionality */
-    .horizontal-page::-webkit-scrollbar {
-      width: 0;
-      background: transparent;
-    }
-
-    /* Ensure content fits within viewport */
-    .content-wrapper {
-      max-height: calc(100vh - 130px); /* Account for header and footer */
-      overflow-y: auto;
-    }
-
-    /* Prevent text selection during swipe */
-    .horizontal-page {
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    /* Allow text selection in specific areas */
-    .story-text,
-    .services-content,
-    .contact-info {
-      user-select: text;
-      -webkit-user-select: text;
+      .content-container.row { flex-direction: row; text-align: left; }
+      .horizontal-page { padding: 100px 60px; }
     }
   </style>
 </head>
 <body>
-  <!-- Horizontal Scroll Progress Bar -->
-  <div class="scroll-progress">
-    <div class="scroll-progress-bar" id="scrollProgress"></div>
-  </div>
 
-  <!-- ENHANCED NAVBAR -->
-  <header id="main-header">
-    <a href="#" class="logo" onclick="scrollToPage(0)">INSEEKAN</a>
-    
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-      <i class="fas fa-bars"></i>
-    </button>
+  <div class="scroll-progress"><div class="scroll-progress-bar" id="progressBar"></div></div>
+
+  <header>
+    <div class="logo" onclick="scrollToPage(0)">INSEEKAN</div>
+    <button class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- Mobile Navigation Menu -->
-  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
-  <div class="mobile-nav" id="mobileNav">
-    <a class="mobile-nav-item active" onclick="scrollToPage(0); closeMobileMenu()">Home</a>
-    <a class="mobile-nav-item" onclick="scrollToPage(1); closeMobileMenu()">Story</a>
-    <a class="mobile-nav-item" onclick="scrollToPage(2); closeMobileMenu()">Grooms</a>
-    <a class="mobile-nav-item" onclick="scrollToPage(3); closeMobileMenu()">Services</a>
-    <a class="mobile-nav-item" onclick="scrollToPage(4); closeMobileMenu()">Packages</a>
-    <a class="mobile-nav-item" onclick="scrollToPage(5); closeMobileMenu()">Booking</a>
-  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#" onclick="scrollToPage(0); toggleMenu()">Home</a>
+    <a href="#" onclick="scrollToPage(1); toggleMenu()">Story</a>
+    <a href="#" onclick="scrollToPage(2); toggleMenu()">Grooms</a>
+    <a href="#" onclick="scrollToPage(3); toggleMenu()">Services</a>
+    <a href="#" onclick="scrollToPage(4); toggleMenu()">Packages</a>
+    <a href="#" onclick="scrollToPage(5); toggleMenu()">Booking</a>
+    <i class="fas fa-times" style="position:absolute; top:25px; right:30px; font-size:24px;" onclick="toggleMenu()"></i>
+  </nav>
 
-  <!-- Horizontal Navigation Dots -->
   <div class="horizontal-nav-dots">
-    <div class="nav-dot active" data-page="0"></div>
-    <div class="nav-dot" data-page="1"></div>
-    <div class="nav-dot" data-page="2"></div>
-    <div class="nav-dot" data-page="3"></div>
-    <div class="nav-dot" data-page="4"></div>
-    <div class="nav-dot" data-page="5"></div>
+    <div class="nav-dot active" onclick="scrollToPage(0)"></div>
+    <div class="nav-dot" onclick="scrollToPage(1)"></div>
+    <div class="nav-dot" onclick="scrollToPage(2)"></div>
+    <div class="nav-dot" onclick="scrollToPage(3)"></div>
+    <div class="nav-dot" onclick="scrollToPage(4)"></div>
+    <div class="nav-dot" onclick="scrollToPage(5)"></div>
   </div>
 
-  <!-- Horizontal Scroll Container -->
-  <div class="horizontal-scroll-wrapper" id="scrollWrapper">
-    <!-- Page 1: HERO -->
+  <div class="horizontal-scroll-wrapper" id="mainWrapper">
     <section class="horizontal-page" id="hero-page">
-      <div class="content-wrapper">
-        <div class="hero-content">
-          <h1>STYLED BY INSEEKAN</h1>
-          <p class="hero-subtitle">Elegant styling for your most important moments</p>
-          <a class="btn" onclick="scrollToPage(4)">
-            <span>EXPLORE PACKAGES</span>
-          </a>
+      <h1>Styled By Inseekan</h1>
+      <p style="text-align: center;">Elegant styling for your most important moments.</p>
+      <button class="btn" onclick="scrollToPage(4)">Explore Packages</button>
+    </section>
+
+    <section class="horizontal-page">
+      <div class="content-container row">
+        <div class="image-box">
+          <img src="story.png" alt="Nsikan" loading="lazy">
         </div>
-        
-        <div class="scroll-hint">
-          <span>Swipe or Scroll</span>
-          <i class="fas fa-arrow-right"></i>
+        <div>
+          <h2>Our Story</h2>
+          <p>Hi, I'm Nsikan; creative entrepreneur and founder of Styled By Inseekan.</p>
+          <p>I help men look sharp, feel confident, and stay calm, even with the pressure that comes with these big days.</p>
+          <div style="color:var(--accent-color); font-style:italic;">@styledbyinseekan</div>
         </div>
       </div>
     </section>
 
-    <!-- Page 2: OUR STORY -->
-    <section class="horizontal-page" id="story-page">
-      <div class="content-wrapper">
-        <div class="story-container">
-          <div class="story-image">
-            <img src="story.png" alt="Nsikan - Styled by Inseekan" />
-          </div>
-
-          <div class="story-text">
-            <h2>Our Story</h2>
-            <p>
-              Hi, I'm Nsikan; creative entrepreneur and founder of Styled By Inseekan.
-            </p>
-            <p>
-              Styled By Inseekan was born from a simple but powerful purpose: showing up for my guys on their most important days. 
-            </p>
-            <p>
-              I help men look sharp, feel confident, and stay calm, even with the pressure that comes with these big days.
-            </p>
-            <div class="story-handle">@styledbyinseekan</div>
-          </div>
+    <section class="horizontal-page">
+      <div class="content-container">
+        <h2 style="text-align:center;">#INSEEKANGROOMS</h2>
+        <div class="image-box" style="max-width: 700px; aspect-ratio: 16/9;">
+          <img src="inseekangrooms.png" alt="Inseekan Grooms" loading="lazy">
         </div>
-        
-        <div class="scroll-hint">
-          <span>Swipe to Continue</span>
-          <i class="fas fa-arrow-right"></i>
+        <p style="text-align:center;">Intentional style for moments that matter most.</p>
+      </div>
+    </section>
+
+    <section class="horizontal-page">
+      <h2>Our Services</h2>
+      <div class="grid-container">
+        <div class="card">
+          <h3>Groom Styling</h3>
+          <p>Pre-wedding, White Wedding, and Traditional styling management.</p>
+        </div>
+        <div class="card">
+          <h3>Special Occasions</h3>
+          <p>Birthdays, anniversaries, and red carpet events.</p>
+        </div>
+        <div class="card">
+          <h3>Editorial</h3>
+          <p>Creative direction and styling for photographers and brands.</p>
         </div>
       </div>
     </section>
 
-    <!-- Page 3: GROOMS -->
-    <section class="horizontal-page" id="grooms-page">
-      <div class="content-wrapper">
-        <div class="grooms-container">
-          <div class="grooms-text">
-            <h2>
-              <span class="hashtag">#INSEEKANGROOMS</span>
-              <span class="subtext">Intentional style for moments that matter most.</span>
-            </h2>
-          </div>
-
-          <div class="grooms-image">
-            <img src="inseekangrooms.png" alt="Inseekan Grooms" />
-          </div>
+    <section class="horizontal-page">
+      <h1>Wedding Packages</h1>
+      <div class="grid-container">
+        <div class="card">
+          <h3>Standard</h3>
+          <div class="price">₦750,000</div>
+          <p>Essential styling for the modern groom looking to elevate his presence.</p>
+          <button class="btn" onclick="scrollToPage(5)">Inquire</button>
         </div>
-        
-        <div class="scroll-hint">
-          <span>Swipe to Continue</span>
-          <i class="fas fa-arrow-right"></i>
+        <div class="card" style="border-color: var(--accent-color);">
+          <h3>Premium</h3>
+          <div class="price">₦1,000,000</div>
+          <p>The complete experience. Flawless execution from morning till after-party.</p>
+          <button class="btn" onclick="scrollToPage(5)">Inquire</button>
         </div>
       </div>
     </section>
 
-    <!-- Page 4: SERVICES -->
-    <section class="horizontal-page" id="services-page">
-      <div class="content-wrapper">
-        <div class="services-content">
-          <h1>OUR SERVICES</h1>
-          <div class="subheading">GROOM & WEDDING STYLING</div>
-          
-          <p class="intro-text">
-            I work with grooms to create the perfect looks for every part of your wedding journey:
-          </p>
-          
-          <div class="services-list">
-            <span class="service-item">Pre-wedding shoot</span>
-            <span class="service-item">Traditional wedding</span>
-            <span class="service-item">White wedding</span>
-            <span class="service-item">Reception</span>
-            <span class="service-item">After party</span>
-          </div>
-          
-          <p class="closing-text">
-            From start to finish, I handle the details so you show up confident and stress-free.
-          </p>
-          
-          <!-- Cards Section -->
-          <div class="services-cards-section">
-            <div class="cards-container">
-              <div class="card">
-                <div class="card-number">01</div>
-                <h3 class="card-title">SPECIAL OCCASION STYLING</h3>
-                <p class="card-text">Birthdays. Graduations. Anniversaries. Celebrations that matter.</p>
-              </div>
-              
-              <div class="card">
-                <div class="card-number">02</div>
-                <h3 class="card-title">EVERYDAY CONFIDENCE</h3>
-                <p class="card-text">Looking sharp shouldn't be complicated.</p>
-              </div>
-              
-              <div class="card">
-                <div class="card-number">03</div>
-                <h3 class="card-title">EDITORIAL & CREATIVE</h3>
-                <p class="card-text">I work with photographers and creative teams.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="scroll-hint">
-          <span>Swipe to Continue</span>
-          <i class="fas fa-arrow-right"></i>
-        </div>
+    <section class="horizontal-page">
+      <h2>Booking Policy</h2>
+      <div class="grid-container" style="margin-bottom: 40px;">
+        <div class="card"><h3>18 Weeks</h3><p>Recommended booking lead time.</p></div>
+        <div class="card"><h3>Confirmation</h3><p>Dates are secured upon full payment.</p></div>
       </div>
-    </section>
-
-    <!-- Page 5: PACKAGES -->
-    <section class="horizontal-page" id="packages-page">
-      <div class="content-wrapper">
-        <div class="packages-hero-content">
-          <h1>OUR WEDDING PACKAGES</h1>
-          <p>Every vision begins with understanding the purpose. We take time to understand your vision and bring it to life.</p>
-          
-          <div class="packages-inner-container">
-            <!-- Premium Package -->
-            <div class="package-card">
-              <div class="package-header">
-                <h3 class="package-title">PREMIUM PACKAGE</h3>
-                <div class="package-subtitle">Complete Experience</div>
-                <div class="package-price">₦1,000,000</div>
-              </div>
-              
-              <div class="package-details">
-                <p class="package-description">
-                  For the groom who embraces ease and softness - every moment, every look, flawlessly styled.
-                </p>
-                <a class="btn" onclick="scrollToPage(5)">
-                  <span>Select Package</span>
-                </a>
-              </div>
-            </div>
-            
-            <!-- Standard Package -->
-            <div class="package-card">
-              <div class="package-header">
-                <h3 class="package-title">STANDARD PACKAGE</h3>
-                <div class="package-subtitle">Essential Styling</div>
-                <div class="package-price">₦750,000</div>
-              </div>
-              
-              <div class="package-details">
-                <p class="package-description">
-                  For grooms who need to boost their style - making key moments extraordinary.
-                </p>
-                <a class="btn" onclick="scrollToPage(5)">
-                  <span>Select Package</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="scroll-hint">
-          <span>Swipe to Continue</span>
-          <i class="fas fa-arrow-right"></i>
-        </div>
-      </div>
-    </section>
-
-    <!-- Page 6: BOOKING & CONTACT -->
-    <section class="horizontal-page" id="booking-page">
-      <div class="content-wrapper">
-        <div class="booking-heading">
-          <h1>BOOKING POLICY</h1>
-        </div>
-
-        <div class="booking-container">
-          <div class="policy-card">
-            <div class="policy-icon">
-              <i class="fas fa-calendar-check"></i>
-            </div>
-            <h3 class="policy-title">SECURING YOUR DATE</h3>
-            <p>Bookings are confirmed subject to availability.</p>
-          </div>
-
-          <div class="policy-card">
-            <div class="policy-icon">
-              <i class="fas fa-credit-card"></i>
-            </div>
-            <h3 class="policy-title">PAYMENT TERMS</h3>
-            <p>Full payment must be received before commencement.</p>
-          </div>
-          
-          <div class="policy-card">
-            <div class="policy-icon">
-              <i class="fas fa-clock"></i>
-            </div>
-            <h3 class="policy-title">TIMELINE</h3>
-            <p>Book at least 15-18 weeks before your event.</p>
-          </div>
-        </div>
-        
-        <!-- Contact Section -->
-        <div class="contact-container">
-          <div class="contact-header">
-            <h2>READY TO GET STARTED?</h2>
-            <p>Let's create something unforgettable together.</p>
-          </div>
-          
-          <div class="contact-info">
-            <p>Email: <a href="mailto:talktoinseekan@gmail.com">talktoinseekan@gmail.com</a></p>
-            <p>WhatsApp: <a href="https://wa.me/2348132275689">+2348132275689</a></p>
-            <p>Instagram: <a href="https://instagram.com/styledbyinseekan">@styledbyinseekan</a></p>
-          </div>
-        </div>
-        
-        <div class="scroll-hint">
-          <span>Swipe to Go Back</span>
-          <i class="fas fa-arrow-left"></i>
-        </div>
-      </div>
+      <h2>Get In Touch</h2>
+      <p style="text-align:center;">WhatsApp: +2348132275689<br>Email: talktoinseekan@gmail.com</p>
+      <a href="https://wa.me/2348132275689" class="btn">Chat on WhatsApp</a>
     </section>
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="social-links">
-      <a href="https://instagram.com/styledbyinseekan"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/2348132275689"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:talktoinseekan@gmail.com"><i class="far fa-envelope"></i></a>
+    <div style="margin-bottom:10px;">
+      <a href="#" style="color:white; margin:0 10px;"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="color:white; margin:0 10px;"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <div class="copyright">
-      &copy; <span id="currentYear"></span> Inseekan. All rights reserved.
-    </div>
+    <div style="font-size:10px; opacity:0.6;">&copy; 2026 STYLED BY INSEEKAN</div>
   </footer>
 
   <script>
-    // ================ MOBILE-FRIENDLY HORIZONTAL SCROLL ================
+    const wrapper = document.getElementById('mainWrapper');
+    const dots = document.querySelectorAll('.nav-dot');
+    const bar = document.getElementById('progressBar');
+    const nav = document.getElementById('mobileNav');
     
-    document.addEventListener('DOMContentLoaded', () => {
-      const scrollWrapper = document.getElementById('scrollWrapper');
-      const navDots = document.querySelectorAll('.nav-dot');
-      const scrollProgress = document.getElementById('scrollProgress');
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-      const mobileNav = document.getElementById('mobileNav');
-      const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+    let current = 0;
+    let isMoving = false;
+
+    function scrollToPage(index) {
+      if (index < 0 || index > 5 || isMoving) return;
       
-      const totalPages = 6;
-      let currentPage = 0;
-      let isScrolling = false;
-      let touchStartX = 0;
-      let touchStartY = 0;
-      let isTouchDevice = 'ontouchstart' in window;
+      isMoving = true;
+      current = index;
       
-      // Set current year in footer
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      // Move wrapper
+      wrapper.style.transform = `translate3d(-${index * 100}vw, 0, 0)`;
       
-      // Mobile menu functionality
-      function openMobileMenu() {
-        mobileNavOverlay.classList.add('active');
-        mobileNav.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+      // Update Progress Bar
+      bar.style.width = `${((index + 1) / 6) * 100}%`;
       
-      function closeMobileMenu() {
-        mobileNavOverlay.classList.remove('active');
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      
-      mobileMenuBtn.addEventListener('click', openMobileMenu);
-      mobileNavOverlay.addEventListener('click', closeMobileMenu);
-      
-      // Update mobile navigation items
-      function updateMobileNav(pageIndex) {
-        mobileNavItems.forEach((item, index) => {
-          if (index === pageIndex) {
-            item.classList.add('active');
-          } else {
-            item.classList.remove('active');
-          }
-        });
-      }
-      
-      // Update active navigation
-      function updateNavigation(pageIndex) {
-        // Update dots
-        navDots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === pageIndex);
-        });
-        
-        // Update mobile nav
-        updateMobileNav(pageIndex);
-        
-        // Update progress bar
-        const progress = ((pageIndex + 1) / totalPages) * 100;
-        scrollProgress.style.width = `${progress}%`;
-      }
-      
-      // Scroll to specific page
-      function scrollToPage(pageIndex) {
-        if (pageIndex < 0 || pageIndex >= totalPages || isScrolling) return;
-        
-        currentPage = pageIndex;
-        isScrolling = true;
-        
-        // Calculate scroll position
-        const scrollAmount = pageIndex * window.innerWidth;
-        
-        // Apply smooth scroll
-        scrollWrapper.style.transform = `translateX(-${scrollAmount}px)`;
-        
-        // Update navigation
-        updateNavigation(pageIndex);
-        
-        // Reset scrolling flag after animation
-        setTimeout(() => {
-          isScrolling = false;
-        }, 600);
-      }
-      
-      // Touch swipe detection for mobile
-      if (isTouchDevice) {
-        document.addEventListener('touchstart', (e) => {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-        
-        document.addEventListener('touchmove', (e) => {
-          if (isScrolling) {
-            e.preventDefault();
-            return;
-          }
-        }, { passive: false });
-        
-        document.addEventListener('touchend', (e) => {
-          if (!touchStartX || !touchStartY) return;
-          
-          const touchEndX = e.changedTouches[0].clientX;
-          const touchEndY = e.changedTouches[0].clientY;
-          
-          const diffX = touchStartX - touchEndX;
-          const diffY = touchStartY - touchEndY;
-          
-          // Only trigger horizontal swipe if horizontal movement is greater than vertical
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            e.preventDefault();
-            
-            if (diffX > 0 && currentPage < totalPages - 1) {
-              // Swipe left - go to next page
-              scrollToPage(currentPage + 1);
-            } else if (diffX < 0 && currentPage > 0) {
-              // Swipe right - go to previous page
-              scrollToPage(currentPage - 1);
-            }
-          }
-          
-          touchStartX = null;
-          touchStartY = null;
-        }, { passive: true });
-      }
-      
-      // Mouse wheel for desktop
-      if (!isTouchDevice) {
-        window.addEventListener('wheel', (e) => {
-          e.preventDefault();
-          
-          if (isScrolling) return;
-          
-          if (e.deltaY > 0 && currentPage < totalPages - 1) {
-            scrollToPage(currentPage + 1);
-          } else if (e.deltaY < 0 && currentPage > 0) {
-            scrollToPage(currentPage - 1);
-          }
-        }, { passive: false });
-      }
-      
-      // Navigation dots click events
-      navDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          const pageIndex = parseInt(dot.getAttribute('data-page'));
-          scrollToPage(pageIndex);
-        });
+      // Update Dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
       });
-      
-      // Mobile navigation items click events
-      mobileNavItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-          scrollToPage(index);
-        });
-      });
-      
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' && currentPage < totalPages - 1) {
-          scrollToPage(currentPage + 1);
-        } else if (e.key === 'ArrowLeft' && currentPage > 0) {
-          scrollToPage(currentPage - 1);
-        } else if (e.key === 'Home') {
-          scrollToPage(0);
-        } else if (e.key === 'End') {
-          scrollToPage(totalPages - 1);
-        }
-      });
-      
-      // Handle window resize
-      let resizeTimeout;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          scrollToPage(currentPage);
-        }, 250);
-      });
-      
-      // Initialize
-      updateNavigation(0);
-      scrollWrapper.style.transform = 'translateX(0)';
-      
-      // Make scrollToPage available globally
-      window.scrollToPage = scrollToPage;
-      
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (mobileNav.classList.contains('active') && 
-            !mobileNav.contains(e.target) && 
-            !mobileMenuBtn.contains(e.target)) {
-          closeMobileMenu();
-        }
-      });
-      
-      // Handle escape key to close mobile menu
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-          closeMobileMenu();
-        }
-      });
-    });
+
+      setTimeout(() => { isMoving = false; }, 800);
+    }
+
+    // Wheel Support (Desktop)
+    window.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > 30) {
+        e.deltaY > 0 ? scrollToPage(current + 1) : scrollToPage(current - 1);
+      }
+    }, { passive: true });
+
+    // Touch Support (Mobile)
+    let touchStart = 0;
+    window.addEventListener('touchstart', e => touchStart = e.touches[0].clientX, {passive: true});
+    window.addEventListener('touchend', e => {
+      let touchEnd = e.changedTouches[0].clientX;
+      if (touchStart - touchEnd > 80) scrollToPage(current + 1);
+      if (touchStart - touchEnd < -80) scrollToPage(current - 1);
+    }, {passive: true});
+
+    function toggleMenu() {
+      nav.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
